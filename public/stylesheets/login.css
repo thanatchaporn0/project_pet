@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe6d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    padding: 70px 40px;
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 20px;
+}
+
+.login-header img {
+    width: 60px;
+    height: 50px;
+    margin-bottom: 10px;
+    margin-top: -30px;
+    
+}
+
+.login-header h1 {
+    font-size: 24px;
+    color: #000000;
+    margin: 10px 0;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.nav-buttons a {
+    font-size: 18px;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    flex: 1;
+    text-align: center;
+}
+
+.nav-buttons a.active {
+    background-color: #E67B19;
+    color: white;
+}
+
+.nav-buttons a:not(.active):hover {
+    background-color: #ddd;
+}
+
+.login-form {
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #E67B19;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff7b00;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+p a {
+    color: #888;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    pointer-events: none;
+}

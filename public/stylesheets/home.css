@@ -81,8 +81,13 @@ p {
     margin-top: 100px;
 }
 
-.dog-images img {
+/* .dog-images img {
     width: 700px;
+    margin-top: 30px;
+} */
+
+.dog-images img {
+    width: 120px;
     height: auto;
     margin: 0 10px;
 }

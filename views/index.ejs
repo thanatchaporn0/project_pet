@@ -1,45 +1,32 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="th">
 <head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Breed Dog</title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
-
 <body>
-  <ul>
-    <img src="/public/images/logowebsite.png" alt="logowebsite">
-    <div class="text">
-      <h1>Recommendation</h1>
-      <h1>Breed</h1>
-      <h1>Dog</h1>
-    </div>
-    <li>
-      <p><a href="">พันธุ์สุนัข</a></p>
-    </li>
-    <li>
-      <p><a href="">สายพันธุ์สุนัข</a></p>
-    </li>
-    <li>
-      <p><a href="">เตรียมความพร้อมสำหรับเลี้ยงสุนัข</a></p>
-    </li>
-    <li>
-      <p><a href="">ประวัติแนะนำพันธุ์สุนัข</a></p>
-    </li>
-    <li>
-      <p><a href="">แหล่งซื้อสุนัข</a></p>
-    </li>
-
-  </ul>
-  <h1 style="text-align: center;">แนะนําพันธุ์สุนัขให้เหมาะสมกับรูปแบบการดําเนินชีวิตบุคคล</h1>
-  <p style="text-align: center;">สุนัขมีหลากหลายสายพันธุ์ การตัดสินใจเลือกพันธุ์สุนัขที่จะเลี้ยงจึงเป็นเรื่องยาก</p>
-  <p style="text-align: center;">เว็บไซต์ Recommendation Breed Dog สามารถให้ความรู้และแนะนำสายพันธุ์สุนัข</p>
-  <p style="text-align: center;">โรคของสุนัข โดยคลิกเริ่มทำแบบทดสอบเพื่อแนะนําพันธุ์สุนัขที่เหมาะสมกับคุณ</p>
-  <p style="text-align: center;"><a href="link_to_your_quiz_page" class="start-test-button">เริ่มแบบทดสอบ</a></p>
-  <img src="/public/images/dog.png" alt="dog" >
-  <img src="/public/images/dog.png" alt="dog" >
-
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="Recommendation Breed Dog">
+            <span>Recommendation Breed Dog</span>
+        </div>
+        <div class="buttons">
+            <a href="/login"><button>เข้าสู่ระบบ</button></a>
+            <a href="/register"><button>ลงทะเบียน</button></a>
+        </div>
+    </header>
+    <main>
+        <h1>แนะนำพันธุ์สุนัขให้เหมาะสมกับรูปแบบการดำเนินชีวิตบุคคล</h1>
+        <p>สุนัขมีหลากหลายสายพันธุ์ การตัดสินใจเลือกพันธุ์สุนัขที่จะเลี้ยงจึงเป็นเรื่องยาก</p>
+        <p>เว็บไซต์ Recommendation Breed Dog สามารถให้ความรู้และแนะนำสายพันธุ์สุนัข โรคของสุนัข</p>
+        <p>โดยคลิกเริ่มทำแบบทดสอบเพื่อแนะนำพันธุ์สุนัขที่เหมาะสมกับคุณ</p>
+        <button class="main-btn">เริ่มทำแบบทดสอบแนะนำพันธุ์สุนัข</button>
+        <div class="dog-images">
+            <img src="/images/dog1.png" alt="Dog 1">
+            
+        </div>
+    </main>
+</body>
 </html>

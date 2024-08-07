@@ -7,6 +7,9 @@ var mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/login');
+var registerRouter = require('./routes/register');
+var homeRouter = require('./routes/home');
 
 var app = express();
 
@@ -22,14 +25,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/login', loginRouter);
+app.use('/register', registerRouter);
+app.use('/home', homeRouter);
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
-const uri = "mongodb+srv://thanatchaporn:thanatchaporn3831@cluster0.yvc9eat.mongodb.net" 
+const uri = "mongodb+srv://natcha:natcha789@cluster0.xsetczz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" 
 mongoose.connect(uri)
 .then((result)=> app.listen(8000, () => {
   console.log('API is running on ports 8000 http://localhost:8000/');
 }))
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

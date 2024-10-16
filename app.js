@@ -4,16 +4,34 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
+const session = require('express-session');
 
 //เพิ่ม
 var indexRouter = require('./routes/index');
 var breeddogRouter = require('./routes/breeddog');
 var breedRouter = require('./routes/breed');
 var formRouter = require('./routes/form');
+var loginRouter = require('./routes/login');
+var registerRouter = require('./routes/register');
+
+
 
 
 
 var app = express();
+const sessionConfig = {
+  secret: 'secret',
+  resave: true, // บันทึก session ทุกครั้งที่มีการร้องขอ
+  saveUninitialized: true, // บันทึก session ทุกครั้งที่มีการร้องขอ โดยไม่คำนึงว่า session จะมีข้อมูลหรือไม่
+};
+
+app.use(session(sessionConfig));
+
+app.use(function(req, res, next) {
+  res.locals.sessions = req.session
+  res.locals.cookies = req.cookies
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +48,10 @@ app.use('/', indexRouter);
 app.use('/form', formRouter); 
 app.use('/breeddog', breeddogRouter);
 app.use('/breed', breedRouter);
+app.use('/login', loginRouter);
+app.use('/register', registerRouter);
+
+
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

@@ -9,7 +9,8 @@ const userSchema = new Schema({
     type: Number,
     default: 0
     // 0 = ผู้ใช้ธรรมดา, 1 = admin
-}
+},
+
 
 });
 //ทำโครงสร้างไว้ก่อน

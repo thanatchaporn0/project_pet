@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ff7f50;
+}
+
+.breed-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.breed-container h2 {
+    margin-bottom: 20px;
+}
+
+.breed-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.image-section {
+    flex: 1;
+    position: relative;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+}
+
+.percentage {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.details-section {
+    flex: 2;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.details-section p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.info-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.icon {
+    text-align: center;
+    margin: 10px;
+    flex: 1;
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.icon p {
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.icon span {
+    font-size: 14px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff7f50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #ff4500;
+}

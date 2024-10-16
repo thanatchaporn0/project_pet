@@ -3,13 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
 
+//เพิ่ม
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login');
-var registerRouter = require('./routes/register');
-var homeRouter = require('./routes/home');
+var breeddogRouter = require('./routes/breeddog');
+var breedRouter = require('./routes/breed');
+var formRouter = require('./routes/form');
+
+
 
 var app = express();
 
@@ -23,10 +25,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/register', registerRouter);
-app.use('/home', homeRouter);
+//เพิ่ม
+app.use('/', indexRouter);
+app.use('/form', formRouter); 
+app.use('/breeddog', breeddogRouter);
+app.use('/breed', breedRouter);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -34,7 +37,7 @@ app.get('/', (req, res) => {
 
 const uri = "mongodb+srv://natcha:natcha789@cluster0.xsetczz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" 
 mongoose.connect(uri)
-.then((result) => app.listen(8000, () => {
+.then((result)=> app.listen(8000, () => {
   console.log('API is running on ports 8000 http://localhost:8000/');
 }))
 

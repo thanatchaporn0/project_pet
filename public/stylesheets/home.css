@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -20,8 +21,8 @@ header {
 }
 
 .logo img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-right: 10px;
 }
 
@@ -64,18 +65,20 @@ p {
 }
 
 .main-btn {
-    padding: 15px 30px;
+    padding: 20px 50px;
     border: none;
-    background-color: #ff7f50;
-    color: white;
+    background-color: #E67B19;
+    color: rgb(255, 255, 255);
     cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
-}
-
-.main-btn:hover {
-    background-color: #ff4500;
-}
+    font-size: 22px;
+    border-radius: 15px;
+    margin-top: 50px;
+  }
+  
+  .main-btn:hover {
+    background-color: #ffdcc2;
+    color: rgb(0, 0, 0);
+  }
 
 .dog-images {
     margin-top: 30px;

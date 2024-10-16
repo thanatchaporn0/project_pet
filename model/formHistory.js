@@ -10,7 +10,12 @@ const HistorySchema = new mongoose.Schema({
         "preferredbehavior":String,
         "noiseproblem":String,
         "clean":String,
-        "breed":String
+        "breed":String,
+        user_id: {
+                type: mongoose.Types.ObjectId, ref: "User",
+                required: true
+        },
+        result:String
 });
 
 module.exports = mongoose.model('FormHistory', HistorySchema);

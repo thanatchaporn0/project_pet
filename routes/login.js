@@ -5,7 +5,19 @@ const UserModel = require('../model/user');
 
 // GET login page
 router.get('/', (req, res) => {
-    res.render('login');
+    if (!req.session.loginsession) {
+        res.render('login');
+
+
+    } else {
+        res.redirect("/")
+    }
+});
+
+router.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+
 });
 
 // POST login data
@@ -14,9 +26,13 @@ router.post('/', async (req, res) => {
     try {
         const result = await UserModel.findOne({ email: email, password: password })
         console.log(result)
-        if(result.role == 1){
+        if (result.role == 1) {
+            req.session.loginsession = result;
+
             res.redirect("/adminhome")
-        }else{
+        } else {
+            req.session.loginsession = result;
+
             res.redirect("/")
         }
     } catch (error) {

@@ -14,10 +14,6 @@ var formRouter = require('./routes/form');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 
-
-
-
-
 var app = express();
 const sessionConfig = {
   secret: 'secret',
@@ -52,14 +48,10 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 
 
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/adminhome', (req, res) => {
-  res.render('adminhome', { email: 'Natcha@gmail.com' });
-});
 
 const uri = "mongodb+srv://natcha:natcha789@cluster0.xsetczz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" 
 mongoose.connect(uri)

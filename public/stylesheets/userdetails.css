@@ -1,8 +1,7 @@
-
 body{
-  font-family: "Sarabun", sans-serif;
-  font-weight: 100;
-  font-style: normal;
+    font-family: "Sarabun", sans-serif;
+    font-weight: 100;
+    font-style: normal;
 }
 .container{
   display: grid;
@@ -53,7 +52,6 @@ ul li a p{
 ul .active a p{
   color: white;
 }
-
 ul li a{
   text-decoration: none;
   display: flex;
@@ -93,22 +91,13 @@ ul li a img{
   width: 22%;
 }
 .logout:hover {
-  background-color: #F29040;
+  background-color: #E67B19;
   color: white;
-}
-#popupForm {
-  width: '80%';
-  background-color: #F29040;
-  position: fixed;
-  z-index: 9;
-  margin:auto;
 }
 
 /* Container for the content */
 .content {
-  padding: 20px;
   background-color: white;
-  margin: 20px;
 }
 
 /* Header styling */
@@ -118,124 +107,75 @@ ul li a img{
   margin-bottom: 20px;
 }
 
-/* Button to add a new breed */
-.actions {
-  margin-bottom: 20px;
-}
-
-.add-btn {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.add-btn:hover {
-  background-color: #0066DF;
-}
-
-/* Table styling */
-.breed-table {
+.user-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-.breed-table th, .breed-table td {
+.user-table th, .user-table td {
   border: 1px solid #ddd;
   padding: 15px;
   text-align: center;
   font-size: 16px;
 }
 
-.breed-table th {
+.user-table th {
   background-color: #F29040;
   color: white;
   font-weight: bold;
 }
 
-.breed-table td img {
+.user-table td img {
   width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.breed-table td {
+.user-table td {
   background-color: #fff;
 }
 
-/* Buttons for editing and deleting */
-.breed-table td button {
-  width: 80px;
-  padding: 10px;
-  border: none;
+
+/* Button styling */
+.edit-btn,
+.delete-btn {
+  padding: 10px 20px;
   border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.breed-table td .edit-btn {
-  background-color: #FCC812;
+.edit-btn {
+  background-color: #ffc107;
   color: #fff;
 }
 
-.breed-table td .edit-btn:hover {
+.edit-btn:hover {
   background-color: #FCC812;
 }
 
-.breed-table td .delete-btn {
+.delete-btn {
   background-color: #FC2012;
   color: #fff;
 }
 
-.breed-table td .delete-btn:hover {
+.delete-btn:hover {
   background-color: #FC2012;
 }
- 
 
-
-/* Parn  */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
+/* Make the table responsive */
+@media (max-width: 768px) {
+  .user-table {
+    width: 100%;
+    font-size: 14px;
   }
 
-  .layout{
-    display :flex;
-    justify-content: center;
-    align-items: center;
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 16px;
   }
-  
-  table, td, th {
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 70%;
-  }
-  
-  th, td {
-    padding: 15px;
-  }
-
-  .header{
-    background-color: #f57c00;
-  }
-
-  .header td{
-    color: white;
-  }
+}

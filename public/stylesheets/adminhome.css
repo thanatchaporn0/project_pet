@@ -1,3 +1,26 @@
+
+body{
+  font-family: "Sarabun", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+.container{
+  display: grid;
+  grid-template-columns: 22% auto;
+  
+}
+.sidebar{
+  border-right: 1px solid grey;
+  margin-left: 0;
+  padding: 10px;
+  height:100vh ;
+}
+.content{
+  padding: 10px;
+  height:100vh ;
+  
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -28,103 +51,139 @@ body {
 }
 
 .sidebar .user-info {
-    text-align: center;
-    margin-bottom: 10px;
+  text-align: center;
+
 }
 
 .sidebar .user-avatar {
-    background-color: #E67B19;
-    color: white;
-    font-size: 24px;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+  background-color: #E67B19;
+  color: white;
+  font-size: 24px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
-
 .sidebar .user-email {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #E67B19;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #E67B19;
 }
 
+ul{
+  list-style: none;
+  margin: 30;
+  padding: 0;
+
+}
 
 .menu {
     list-style: none;
     padding: 0;
     margin-top: -150px;
+
+}
+ul li a p{
+  color: #3D3A38;
+}
+ul .active a p{
+  color: white;
+}
+ul li a{
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding:0 10px 0 10px;
 }
 
-.menu li {
-    margin: 15px 0;
-}
-
-.menu li a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #4a4a4a;
-    font-size: 16px;
-    padding: 10px;
-    transition: background 0.3s ease;
-    border-radius: 10px;
-}
 
 .menu li a:hover,
 .menu li.active a {
     background-color: #E67B19; 
     color: white;
 }
+ul .active a{
+  background-color: #E67B19;
+  border-radius:20px ;
 
-.menu li a i {
-    font-size: 20px;
-    margin-right: 10px;
 }
-
-
+ul li a img{
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+ 
+}
 .logout {
-    border: 2px solid #E67B19;
-    background-color: white;
-    color: #E67B19;
-    border-radius: 15px;
-    padding: 10px 0;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  border: 3px solid #E67B19;
+  background-color: white;
+  color: #E67B19;
+  border-radius: 15px;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  
 }
-
+.layout_logout{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 22%;
+}
 .logout:hover {
-    background-color: #E67B19;
-    color: white;
+  background-color: #E67B19;
+  color: white;
 }
 
 
 .content {
-    margin-left: 250px;
-    padding: 20px;
-    width: calc(100% - 250px);
-    background-color: #fff;
+  padding: 20px;
+  background-color: white;
+  margin: 20px;
 }
 
+/* Header styling */
 .header {
-    background-color: #E67B19;
-    color: white;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: left;
-    border-radius: 5px;
+  font-size: 30px;
+  color: #F29040;
+  margin-bottom: 20px;
 }
 
-.header-right {
-    text-align: right;
-    color: white;
-    font-size: 16px;
-    font-weight: normal;
-    float: right;
+/* Card styling */
+.card {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: #fdeee4;
+  border: 2px solid #9E4632;
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.card img {
+  width: 60px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  color: #c77453;
+  margin-bottom: 20px;
+}
+
+.card-count {
+  font-size: 26px;
+  color: #c77453;
+  font-weight: bold;
+}
+

@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const dogSchema = new Schema({
     breed: String,
     appearance:String,
-    commonissue:String,
+    commonissue:[{type:String}],
     behavior:String,
     averageAge:String,
     exercise:String,

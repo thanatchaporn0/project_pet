@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เพิ่มพันธุ์สุนัข</title>
+  <link rel="stylesheet" href="/stylesheets/addbreed.css">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="user-info">
+        <div class="user-avatar">
+          <%=sessions.loginsession.name.charAt(0).toUpperCase()%>
+        </div>
+        <div class="user-email">
+          <%=sessions.loginsession.email%>
+        </div>
+      </div>
+
+      <ul class="menu">
+        <li>
+          <a href="/adminhome">
+            <img src="/images/ภาพรวมสีดำ.png" alt="ภาพรวม">
+            <p>ภาพรวม</p>
+          </a>
+        </li>
+
+
+        <li class="active">
+          <a href="/dogdetails">
+            <img src="/images/จัดการพันธุ์สุนัขสีขาว.png" alt="จัดการพันธุ์สุนัข">
+            <p>จัดการพันธุ์สุนัข</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/userdetails">
+            <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+            <p>จัดการบัญชีผู้ใช้</p>
+          </a>
+        </li>
+
+        <li class="layout_logout">
+          <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
+        </li>
+      </ul>
+
+
+    </div>
+
+    <div class="content">
+      <h1>เพิ่มพันธุ์สุนัข</h1>
+      <form action="/dogdetails/addbreed" method="POST" enctype="multipart/form-data">
+        <label for="topic">ชื่อพันธุ์สุนัข</label>
+        <input type="text" id="topic" name="breed"><br>
+        <label for="topic">รูปร่างลักษณะ</label>
+        <input type="text" id="topic" name="appearance"><br>
+        <label for="topic">ปัญหาที่พบทั่วไป</label>
+        <input type="text" id="topic" name=""><br>
+        <label for="topic">อายุเฉลี่ย</label>
+        <input type="text" id="topic" name="averageAge"><br>
+        <label for="topic">นิสัย</label>
+        <input type="text" id="topic" name="behavior"><br>
+        <label for="topic">การออกกำลังกาย</label>
+        <input type="text" id="topic" name="exercise"><br>
+        <label for="topic">การเฝ้าระวัง</label>
+        <input type="text" id="topic" name="watchdog"><br>
+        <label for="topic">รูปภาพ</label>
+
+        <input type="file" class="form-control form-control-sm mt-5" id="imageUpload" name="image" value=""
+          accept=".png, .jpg, .jpeg .gif" required /><br>
+        <div class="laout">
+          <button type="submit" class="submit-btn">ยืนยัน</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>

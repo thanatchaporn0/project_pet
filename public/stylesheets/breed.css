@@ -1,3 +1,105 @@
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 310px;
+    background-color: #fff;
+    color: #4a4a4a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 20px;
+    border-right: 2px solid #e0e0e0;
+}
+
+/* User Information in Sidebar */
+.sidebar .user-info {
+    text-align: center;
+    margin-bottom: -260px;
+}
+
+.sidebar .user-avatar {
+    background-color: #E67B19;
+    color: white;
+    font-size: 24px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.sidebar .user-email {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #E67B19;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 15px 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.menu li a img {
+    margin-right: 20px;
+    width: 24px;
+    height: 24px;
+}
+
+.menu li.active a {
+    background-color: #E67B19;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* Logout button */
+.logout {
+    border: 3px solid #E67B19;
+    background-color: white;
+    color: #E67B19;
+    border-radius: 15px;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout:hover {
+    background-color: #E67B19;
+    color: white;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;

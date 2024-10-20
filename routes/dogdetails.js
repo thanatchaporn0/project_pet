@@ -15,7 +15,7 @@ const DogDetails = () => {
 
   return (
     <div className="admin-container">
-      {/* Sidebar */}
+     
       <div className="sidebar">
         <div className="sidebar-header">
           <img src="user-avatar.png" alt="User Avatar" />

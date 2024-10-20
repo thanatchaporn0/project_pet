@@ -6,7 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recommendation Form</title>
     <link rel="stylesheet" href="/stylesheets/form.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script>
+        function showQuestion(next) {
+            document.getElementById(next).style.display = 'block';
+        }
+
+        function hideQuestion(current) {
+            document.getElementById(current).style.display = 'none';
+        }
+
+        // ตรวจสอบว่าผู้ใช้ได้เลือกคำตอบก่อนย้ายไปคำถามถัดไป
+        function validateAndNext(current, next) {
+            const radios = document.querySelector(`#${current} input[type="radio"]:checked`);
+            if (!radios) {
+                alert('กรุณาเลือกคำตอบก่อน ยืนยัน');
+                return;
+            }
+            hideQuestion(current);
+            showQuestion(next);
+        }
+
+    </script>
+
 </head>
+
 
 <body>
     <header>
@@ -60,409 +88,477 @@
                         </div>
                     </label>
 
+<body>
+    <%- include('./partial/header.ejs')%>
+        <main>
+            <form id="recommendation-form" action="/form/sendform" method="POST">
+
+                <div class="form-container" id="question1">
+                    <h2>คำถามข้อ 1 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>1. สถานที่อยู่อาศัยหลักของคุณเป็นแบบใด ?</h3>
+
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="housing" value="0">
+                            <div class="option">
+                                <img src="/images/home.png" alt="บ้านเดี่ยว/บ้านสวน">
+                                <span>บ้านเดี่ยว/บ้านสวน</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="housing" value="1">
+                            <div class="option">
+                                <img src="/images/townhouse.png" alt="ทาวน์เฮ้าส์/บ้านแฝด">
+                                <span>ทาวน์เฮ้าส์/บ้านแฝด</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="housing" value="2">
+                            <div class="option">
+                                <img src="/images/condo.png" alt="คอนโดมิเนียม/อพาร์ตเมนต์">
+                                <span>คอนโดมิเนียม/อพาร์ตเมนต์</span>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <button type="submit">ออก</button>
+                    <button type="button" onclick="validateAndNext('question1', 'question2')">ยืนยัน</button>
+        
                 </div>
-                <button type="button" onclick="showQuestion('question2'); hideQuestion('question1')">ยืนยัน</button>
+                <div class="form-container" id="question2">
+                    <h2>คำถามข้อ 2 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>2. ลักษณะการใช้ชีวิตของคุณเป็นอย่างไร ?</h3>
+                    <div class="options">
 
-            </div>
-            <div class="form-container" id="question2">
-                <h2>คำถามข้อ 2 จากทั้งหมด 10 ข้อ</h2>
-                <h3>2. ลักษณะการใช้ชีวิตของคุณเป็นอย่างไร ?</h3>
-                <div class="options">
+                        <label>
+                            <input type="radio" name="lifestyle" value="0">
+                            <div class="option">
+                                <img src="/images/work.png"
+                                    alt="ทำงาน/เรียนเป็นหลักตลอดทั้งวัน (มากกว่า 8 ชั่วโมงต่อวัน)">
+                                <span>ทำงาน/เรียนเป็นหลักตลอดทั้งวัน (มากกว่า 8 ชั่วโมงต่อวัน)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="lifestyle" value="1">
-                        <div class="option">
-                            <img src="/images/work.png" alt="ทำงาน/เรียนเป็นหลักตลอดทั้งวัน (มากกว่า 8 ชั่วโมงต่อวัน)">
-                            <span>ทำงาน/เรียนเป็นหลักตลอดทั้งวัน (มากกว่า 8 ชั่วโมงต่อวัน)</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="lifestyle" value="1">
+                            <div class="option">
+                                <img src="/images/work.png" alt="ทำงาน/เรียนในช่วงเวลาปกติ (6-8 ชั่วโมงต่อวัน)">
+                                <span>ทำงาน/เรียนในช่วงเวลาปกติ (6-8 ชั่วโมงต่อวัน)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="lifestyle" value="2">
-                        <div class="option">
-                            <img src="/images/work.png" alt="ทำงาน/เรียนในช่วงเวลาปกติ (6-8 ชั่วโมงต่อวัน)">
-                            <span>ทำงาน/เรียนในช่วงเวลาปกติ (6-8 ชั่วโมงต่อวัน)</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="lifestyle" value="2">
+                            <div class="option">
+                                <img src="/images/work.png" alt="ทำงาน/เรียนแบบยืดหยุ่น (น้อยกว่า 6 ชั่วโมงต่อวัน)">
+                                <span>ทำงาน/เรียนแบบยืดหยุ่น (น้อยกว่า 6 ชั่วโมงต่อวัน)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="lifestyle" value="3">
-                        <div class="option">
-                            <img src="/images/work.png" alt="ทำงาน/เรียนแบบยืดหยุ่น (น้อยกว่า 6 ชั่วโมงต่อวัน)">
-                            <span>ทำงาน/เรียนแบบยืดหยุ่น (น้อยกว่า 6 ชั่วโมงต่อวัน)</span>
-                        </div>
-                    </label>
+                    </div>
 
-                </div>
-                <button  type="button" onclick="showQuestion('question3'); hideQuestion('question2')">ยืนยัน</button>
-            </div>
-            <div class="form-container" id="question3">
-                <h2>คำถามข้อ 3 จากทั้งหมด 10 ข้อ</h2>
-                <h3>3. คุณมีเวลาว่างทำกิจกรรมร่วมกับสุนัขมากเพียงใด ?</h3>
-
-                <div class="options">
-
-                    <label>
-                        <input type="radio" name="freetime" value="1">
-                        <div class="option">
-                            <img src="/images/dog3.png" alt="มากกว่า 3 ชั่วโมงต่อวัน">
-                            <span>มากกว่า 3 ชั่วโมงต่อวัน</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="freetime" value="2">
-                        <div class="option">
-                            <img src="/images/dog3.png" alt="1-3 ชั่วโมงต่อวัน">
-                            <span>1-3 ชั่วโมงต่อวัน</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="freetime" value="3">
-                        <div class="option">
-                            <img src="/images/dog3.png" alt="น้อยกว่า 1 ชั่วโมงต่อวัน">
-                            <span>น้อยกว่า 1 ชั่วโมงต่อวัน</span>
-                        </div>
-                    </label>
-
-                </div>
-                <button  type="button" onclick="showQuestion('question4'); hideQuestion('question3')">ยืนยัน</button>
-
-            </div>
-            <div class="form-container" id="question4">
-                <h2>คำถามข้อ 4 จากทั้งหมด 10 ข้อ</h2>
-                <h3>4. คุณมีเด็กอาศัยอยู่ร่วมด้วยหรือไม่ ?</h3>
-
-                <div class="options">
-
-                    <label>
-                        <input type="radio" name="Ischildren" value="1">
-                        <div class="option">
-                            <img src="/images/no.png" alt="ไม่มีเด็กอาศัยอยู่ด้วย">
-                            <span>ไม่มีเด็กอาศัยอยู่ด้วย</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="Ischildren" value="2">
-                        <div class="option">
-                            <img src="/images/baby.png" alt="เด็กเล็ก (อายุต่ำกว่า 5 ปี)">
-                            <span>เด็กเล็ก (อายุต่ำกว่า 5 ปี)</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="Ischildren" value="3">
-                        <div class="option">
-                            <img src="/images/children.png" alt="เด็กวัยเรียน (อายุ 5-12 ปี)">
-                            <span>เด็กวัยเรียน (อายุ 5-12 ปี)</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="Ischildren" value="4">
-                        <div class="option">
-                            <img src="/images/children2.png" alt="เด็กวัยรุ่น (อายุ 13-18 ปี)">
-                            <span>เด็กวัยรุ่น (อายุ 13-18 ปี)</span>
-                        </div>
-                    </label>
+                    <button type="button"
+                        onclick="showQuestion('question1'); hideQuestion('question2')">ย้อนกลับ</button>
+                        <button type="button" onclick="validateAndNext('question2', 'question3')">ยืนยัน</button>
 
                 </div>
-                <button  type="button" onclick="showQuestion('question5'); hideQuestion('question4')">ยืนยัน</button>
+                <div class="form-container" id="question3">
+                    <h2>คำถามข้อ 3 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>3. คุณมีเวลาว่างทำกิจกรรมร่วมกับสุนัขมากเพียงใด ?</h3>
 
-            </div>
-            <div class="form-container" id="question5">
-                <h2>คำถามข้อ 5 จากทั้งหมด 10 ข้อ</h2>
-                <h3>5. คุณเลี้ยงสัตว์เลี้ยงชนิดอื่นด้วยหรือไม่ ?</h3>
+                    <div class="options">
 
-                <div class="options">
+                        <label>
+                            <input type="radio" name="freetime" value="0">
+                            <div class="option">
+                                <img src="/images/dog3.png" alt="มากกว่า 3 ชั่วโมงต่อวัน">
+                                <span>มากกว่า 3 ชั่วโมงต่อวัน</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="IsOtheranimal" value="1">
-                        <div class="option">
-                            <img src="/images/no.png" alt="ไม่ได้เลี้ยงสัตว์เลี้ยงอื่น">
-                            <span>ไม่ได้เลี้ยงสัตว์เลี้ยงอื่น</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="freetime" value="1">
+                            <div class="option">
+                                <img src="/images/dog3.png" alt="1-3 ชั่วโมงต่อวัน">
+                                <span>1-3 ชั่วโมงต่อวัน</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="IsOtheranimal" value="2">
-                        <div class="option">
-                            <img src="/images/cat.png" alt="สัตว์เลี้ยงลูกด้วยนม (แมว, กระต่าย, หนูตะเภา, แฮมสเตอร์)">
-                            <span>สัตว์เลี้ยงลูกด้วยนม (แมว, กระต่าย, หนูตะเภา, แฮมสเตอร์)</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="freetime" value="2">
+                            <div class="option">
+                                <img src="/images/dog3.png" alt="น้อยกว่า 1 ชั่วโมงต่อวัน">
+                                <span>น้อยกว่า 1 ชั่วโมงต่อวัน</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="IsOtheranimal" value="3">
-                        <div class="option">
-                            <img src="/images/rabbit.png" alt="สัตว์น้ำ (ปลาทอง, ปลาหางนกยูง)">
-                            <span>สัตว์น้ำ (ปลาทอง, ปลาหางนกยูง)</span>
-                        </div>
-                    </label>
+                    </div>
 
-                    <label>
-                        <input type="radio" name="IsOtheranimal" value="4">
-                        <div class="option">
-                            <img src="/images/rabbit.png" alt="สัตว์ปีก (นกแก้ว, นกหงส์หยก, ไก่)">
-                            <span>สัตว์ปีก (นกแก้ว, นกหงส์หยก, ไก่)</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="IsOtheranimal" value="5">
-                        <div class="option">
-                            <img src="/images/rabbit.png" alt="สัตว์เลื้อยคลานและครึ่งบกครึ่งน้ำ (เต่า, กิ้งก่า, งู)">
-                            <span>สัตว์เลื้อยคลานและครึ่งบกครึ่งน้ำ (เต่า, กิ้งก่า, งู)</span>
-                        </div>
-                    </label>
+                    <button type="button"
+                        onclick="showQuestion('question2'); hideQuestion('question3')">ย้อนกลับ</button>
+                        <button type="button" onclick="validateAndNext('question3', 'question4')">ยืนยัน</button>
 
                 </div>
-                <button  type="button" onclick="showQuestion('question6'); hideQuestion('question5')">ยืนยัน</button>
+                <div class="form-container" id="question4">
+                    <h2>คำถามข้อ 4 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>4. สุนัขต้องอาศัยอยู่ร่วมกับเด็กเป็นหลักด้วยหรือไม่ ?</h3>
 
-            </div>
+                    <div class="options">
 
-            <div class="form-container" id="question6">
-                <h2>คำถามข้อ 6 จากทั้งหมด 10 ข้อ</h2>
-                <h3>6. คุณมีพื้นที่ให้สุนัขวิ่งเล่นมากเพียงใด ?</h3>
+                        <label>
+                            <input type="radio" name="Ischildren" value="0">
+                            <div class="option">
+                                <img src="/images/no.png" alt="ไม่">
+                                <span>ไม่</span>
+                            </div>
+                        </label>
 
-                <div class="options">
+                        <label>
+                            <input type="radio" name="Ischildren" value="1">
+                            <div class="option">
+                                <img src="/images/baby.png" alt="เด็กเล็ก (อายุต่ำกว่า 5 ปี)">
+                                <span>เด็กเล็ก<br>(อายุต่ำกว่า 5 ปี)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="space" value="1">
-                        <div class="option">
-                            <img src="/images/withdog.png" alt="มากกว่า 100 ตารางเมตร (พื้นที่หรือสนามหญ้าขนาดใหญ่)">
-                            <span>มากกว่า 100 ตารางเมตร (พื้นที่หรือสนามหญ้าขนาดใหญ่)</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="Ischildren" value="2">
+                            <div class="option">
+                                <img src="/images/children.png" alt="เด็กวัยเรียน (อายุ 5-12 ปี)">
+                                <span>เด็กวัยเรียน<br>(อายุ 5-12 ปี)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="space" value="2">
-                        <div class="option">
-                            <img src="/images/withdog.png" alt="30-100 (พื้นที่หรือสนามหญ้าขนาดกลาง)">
-                            <span>30-100 (พื้นที่หรือสนามหญ้าขนาดกลาง)</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="Ischildren" value="3">
+                            <div class="option">
+                                <img src="/images/children2.png" alt="เด็กวัยรุ่น (อายุ 13-18 ปี)">
+                                <span>เด็กวัยรุ่น<br>(อายุ 13-18 ปี)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="space" value="3">
-                        <div class="option">
-                            <img src="/images/withdog.png" alt="น้อยกว่า 30 ตารางเมตร (พื้นที่หรือสนามหญ้าขนาดเล็ก)">
-                            <span>น้อยกว่า 30 ตารางเมตร (พื้นที่หรือสนามหญ้าขนาดเล็ก)</span>
-                        </div>
-                    </label>
+                    </div>
 
-                </div>
-                <button  type="button" onclick="showQuestion('question7'); hideQuestion('question6')">ยืนยัน</button>
-            </div>
-
-            <div class="form-container" id="question7">
-                <h2>คำถามข้อ 7 จากทั้งหมด 10 ข้อ</h2>
-                <h3>7. ลักษณะนิสัยและพฤติกรรมของสุนัขที่คุณชอบ ?</h3>
-
-
-                <div class="options">
-
-                    <label>
-                        <input type="radio" name="preferredbehavior " value="1">
-                        <div class="option">
-                            <img src="/images/dog2.png" alt="ความซื่อสัตย์และจงรักภักดี">
-                            <span>ความซื่อสัตย์และจงรักภักดี</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="preferredbehavior" value="2">
-                        <div class="option">
-                            <img src="/images/dog2.png" alt="ความเป็นมิตรและเข้ากับคนง่าย">
-                            <span>ความเป็นมิตรและเข้ากับคนง่าย</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="preferredbehavior" value="3">
-                        <div class="option">
-                            <img src="/images/dog2.png" alt="ความฉลาดและเรียนรู้เร็ว">
-                            <span>ความฉลาดและเรียนรู้เร็ว</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="preferredbehavior" value="4">
-                        <div class="option">
-                            <img src="/images/dog2.png" alt="ความกระตือรือร้นและมีพลัง">
-                            <span>ความกระตือรือร้นและมีพลัง</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="preferredbehavior" value="5">
-                        <div class="option">
-                            <img src="/images/dog2.png" alt="ความสงบและไม่ก้าวร้าว">
-                            <span>ความสงบและไม่ก้าวร้าว</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="preferredbehavior" value="6">
-                        <div class="option">
-                            <img src="/images/dog2.png" alt="ความสามารถในการปกป้องและเฝ้าระวัง">
-                            <span>ความสามารถในการปกป้องและเฝ้าระวัง</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="preferredbehavior" value="8">
-                        <div class="option">
-                            <img src="/images/dog2.png" alt="ความเป็นนักสำรวจและอยากรู้อยากเห็น">
-                            <span>ความเป็นนักสำรวจและอยากรู้อยากเห็น</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="preferredbehavior" value="9">
-                        <div class="option">
-                            <img src="/images/dog2.png" alt="การทำตามคำสั่งและการฝึกได้ง่าย">
-                            <span>การทำตามคำสั่งและการฝึกได้ง่าย</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="preferredbehavior" value="10">
-                        <div class="option">
-                            <img src="/images/dog2.png" alt="ความรักความสนใจจากเจ้าของ">
-                            <span>ความรักความสนใจจากเจ้าของ</span>
-                        </div>
-                    </label>
+                    <button type="button"
+                        onclick="showQuestion('question3'); hideQuestion('question4')">ย้อนกลับ</button>
+                        <button type="button" onclick="validateAndNext('question4', 'question5')">ยืนยัน</button>
 
                 </div>
-                <button  type="button" onclick="showQuestion('question8'); hideQuestion('question7')">ยืนยัน</button>
+                <div class="form-container" id="question5">
+                    <h2>คำถามข้อ 5 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>5. สุนัขต้องอยู่ร่วมกับสัตว์เลี้ยงชนิดอื่นเป็นหลักด้วยหรือไม่ ?</h3>
 
-            </div>
-            <div class="form-container" id="question8">
-                <h2>คำถามข้อ 8 จากทั้งหมด 10 ข้อ</h2>
-                <h3>8. เวลาสุนัขส่งเสียงคุณคิดว่าเป็นปัญหาสำหรับคุณระดับใด ?</h3>
+                    <div class="options">
 
+                        <label>
+                            <input type="radio" name="IsOtheranimal" value="0">
+                            <div class="option">
+                                <img src="/images/no.png" alt="ไม่">
+                                <span>ไม่</span>
+                            </div>
+                        </label>
 
-                <div class="options">
+                        <label>
+                            <input type="radio" name="IsOtheranimal" value="1">
+                            <div class="option">
+                                <img src="/images/cat.png"
+                                    alt="สัตว์เลี้ยงลูกด้วยนม (แมว, กระต่าย, หนูตะเภา, แฮมสเตอร์)">
+                                <span>สัตว์เลี้ยงลูกด้วยนม (แมว, กระต่าย, หนูตะเภา, แฮมสเตอร์)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="noiseproblem" value="3">
-                        <div class="option">
-                            <img src="/images/no.png" alt="ไม่เป็นปัญหา">
-                            <span>ไม่เป็นปัญหา</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="IsOtheranimal" value="2">
+                            <div class="option">
+                                <img src="/images/rabbit.png" alt="สัตว์น้ำ (ปลาทอง, ปลาหางนกยูง)">
+                                <span>สัตว์น้ำ (ปลาทอง, ปลาหางนกยูง)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="noiseproblem" value="2">
-                        <div class="option">
-                            <img src="/images/dog4.png" alt="เป็นปัญหาบางครั้ง">
-                            <span>เป็นปัญหาบางครั้ง</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="IsOtheranimal" value="3">
+                            <div class="option">
+                                <img src="/images/rabbit.png" alt="สัตว์ปีก (นกแก้ว, นกหงส์หยก, ไก่)">
+                                <span>สัตว์ปีก (นกแก้ว, นกหงส์หยก, ไก่)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="noiseproblem" value="1">
-                        <div class="option">
-                            <img src="/images/dog4.png" alt="เป็นปัญหามาก">
-                            <span>เป็นปัญหามาก</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="IsOtheranimal" value="4">
+                            <div class="option">
+                                <img src="/images/rabbit.png"
+                                    alt="สัตว์เลื้อยคลานและครึ่งบกครึ่งน้ำ (เต่า, กิ้งก่า, งู)">
+                                <span>สัตว์เลื้อยคลานและครึ่งบกครึ่งน้ำ (เต่า, กิ้งก่า, งู)</span>
+                            </div>
+                        </label>
+                    </div>
 
-                </div>
-                <button   type="button" onclick="showQuestion('question9'); hideQuestion('question8')">ยืนยัน</button>
+                    <button type="button"
+                        onclick="showQuestion('question4'); hideQuestion('question5')">ย้อนกลับ</button>
+                        <button type="button" onclick="validateAndNext('question5', 'question6')">ยืนยัน</button>
 
-            </div>
-            <div class="form-container" id="question9">
-                <h2>คำถามข้อ 9 จากทั้งหมด 10 ข้อ</h2>
-                <h3>9. คุณจะดูแลทำความสะอาดสุนัขมากน้อยเพียงใด ?</h3>
-
-                <div class="options">
-
-                    <label>
-                        <input type="radio" name="clean" value="1">
-                        <div class="option">
-                            <img src="/images/grooming.png" alt="ทุกวัน">
-                            <span>ทุกวัน</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="clean" value="2">
-                        <div class="option">
-                            <img src="/images/grooming.png" alt="มากกว่า 3 ครั้งต่อสัปดาห์">
-                            <span>มากกว่า 3 ครั้งต่อสัปดาห์</span>
-                        </div>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="clean" value="3">
-                        <div class="option">
-                            <img src="/images/grooming.png" alt="น้อยกว่า 3 ครั้งต่อสัปดาห์">
-                            <span>น้อยกว่า 3 ครั้งต่อสัปดาห์</span>
-                        </div>
-                    </label>
 
                 </div>
-                <button  type="button" onclick="showQuestion('question10'); hideQuestion('question9')">ยืนยัน</button>
+                <div class="form-container" id="question6">
+                    <h2>คำถามข้อ 6 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>6. คุณมีพื้นที่ให้สุนัขวิ่งเล่นมากเพียงใด ?</h3>
 
-            </div>
-            <div class="form-container" id="question10">
-                <h2>คำถามข้อ 10 จากทั้งหมด 10 ข้อ</h2>
-                <h3>10. คุณต้องการเลี้ยงสุนัขพันธุ์เล็ก พันธุ์กลาง หรือพันธุ์ใหญ่ ?</h3>
+                    <div class="options">
 
-                <div class="options">
+                        <label>
+                            <input type="radio" name="space" value="0">
+                            <div class="option">
+                                <img src="/images/withdog.png"
+                                    alt="มากกว่า 100 ตารางเมตร (พื้นที่หรือสนามหญ้าขนาดใหญ่)">
+                                <span>มากกว่า 100 ตารางเมตร<br>(พื้นที่หรือสนามหญ้าขนาดใหญ่)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="breed" value="1">
-                        <div class="option">
-                            <img src="/images/work.png" alt="สุนัขพันธุ์เล็ก น้ำหนักน้อยกว่า 10 กิโลกรัม">
-                            <span>สุนัขพันธุ์เล็ก น้ำหนักน้อยกว่า 10 กิโลกรัม</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="space" value="1">
+                            <div class="option">
+                                <img src="/images/withdog.png" alt="30-100 ตารางเมตร (พื้นที่หรือสนามหญ้าขนาดกลาง)">
+                                <span>30-100 ตารางเมตร<br>(พื้นที่หรือสนามหญ้าขนาดกลาง)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="breed" value="2">
-                        <div class="option">
-                            <img src="/images/work.png" alt="สุนัขพันธุ์กลาง น้ำหนัก 10-20 กิโลกรัม">
-                            <span>สุนัขพันธุ์กลาง น้ำหนัก 10-20 กิโลกรัม</span>
-                        </div>
-                    </label>
+                        <label>
+                            <input type="radio" name="space" value="2">
+                            <div class="option">
+                                <img src="/images/withdog.png"
+                                    alt="น้อยกว่า 30 ตารางเมตร (พื้นที่หรือสนามหญ้าขนาดเล็ก)">
+                                <span>น้อยกว่า 30 ตารางเมตร<br>(พื้นที่หรือสนามหญ้าขนาดเล็ก)</span>
+                            </div>
+                        </label>
 
-                    <label>
-                        <input type="radio" name="breed" value="3">
-                        <div class="option">
-                            <img src="/images/work.png" alt="สุนัขพันธุ์ใหญ่ น้ำหนักมากกว่า 20 กิโลกรัม">
-                            <span>สุนัขพันธุ์ใหญ่ น้ำหนักมากกว่า 20 กิโลกรัม</span>
-                        </div>
-                    </label>
+                    </div>
+
+                    <button type="button"
+                        onclick="showQuestion('question5'); hideQuestion('question6')">ย้อนกลับ</button>
+                        <button type="button" onclick="validateAndNext('question6', 'question7')">ยืนยัน</button>
                 </div>
-                <button type="submit">ยืนยัน</button>
 
-            </div>
-        </form>
-    </main>
+                <div class="form-container" id="question7">
+                    <h2>คำถามข้อ 7 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>7. ลักษณะนิสัยและพฤติกรรมของสุนัขที่คุณชอบ ?</h3>
 
-    <script>
-        document.getElementById("question2").style.display = "none";
-        document.getElementById("question3").style.display = "none";
-        document.getElementById("question4").style.display = "none";
-        document.getElementById("question5").style.display = "none";
-        document.getElementById("question6").style.display = "none";
-        document.getElementById("question7").style.display = "none";
-        document.getElementById("question8").style.display = "none";
-        document.getElementById("question9").style.display = "none";
-        document.getElementById("question10").style.display = "none";
-        function showQuestion(id) {
-            document.getElementById(id).style.display ="block";
-        }
-        function hideQuestion(id) {
-            document.getElementById(id).style.display = "none";
-        }
+                    <div class="options2">
+                        <label>
+                            <input type="radio" name="preferredbehavior " value="0">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="ความซื่อสัตย์และจงรักภักดี">
+                                <span>ความซื่อสัตย์และจงรักภักดี</span>
+                            </div>
+                        </label>
 
-    </script>
+                        <label>
+                            <input type="radio" name="preferredbehavior" value="1">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="ความเป็นมิตรและเข้ากับคนง่าย">
+                                <span>ความเป็นมิตรและเข้ากับคนง่าย</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="preferredbehavior" value="2">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="ความฉลาดและเรียนรู้เร็ว">
+                                <span>ความฉลาดและเรียนรู้เร็ว</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="preferredbehavior" value="3">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="ความกระตือรือร้นและมีพลัง">
+                                <span>ความกระตือรือร้นและมีพลัง</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="preferredbehavior" value="4">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="ความสงบและไม่ก้าวร้าว">
+                                <span>ความสงบและไม่ก้าวร้าว</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="preferredbehavior" value="5">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="ความสามารถในการปกป้องและเฝ้าระวัง">
+                                <span>ความสามารถในการปกป้องและเฝ้าระวัง</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="preferredbehavior" value="6">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="ความเป็นนักสำรวจและอยากรู้อยากเห็น">
+                                <span>ความเป็นนักสำรวจและอยากรู้อยากเห็น</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="preferredbehavior" value="7">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="การทำตามคำสั่งและการฝึกได้ง่าย">
+                                <span>การทำตามคำสั่งและการฝึกได้ง่าย</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="preferredbehavior" value="8">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="ความรักความสนใจจากเจ้าของ">
+                                <span>ความรักความสนใจจากเจ้าของ</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <button type="button"
+                        onclick="showQuestion('question6'); hideQuestion('question7')">ย้อนกลับ</button>
+                        <button type="button" onclick="validateAndNext('question7', 'question8')">ยืนยัน</button>
+
+                </div>
+
+                <div class="form-container" id="question8">
+                    <h2>คำถามข้อ 8 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>8. เวลาสุนัขส่งเสียงคุณคิดว่าเป็นปัญหาสำหรับคุณระดับใด ?</h3>
+
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="noiseproblem" value="0">
+                            <div class="option">
+                                <img src="/images/no.png" alt="ไม่เป็นปัญหา">
+                                <span>ไม่เป็นปัญหา</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="noiseproblem" value="1">
+                            <div class="option">
+                                <img src="/images/dog4.png" alt="เป็นปัญหาบางครั้ง">
+                                <span>เป็นปัญหาบางครั้ง</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="noiseproblem" value="2">
+                            <div class="option">
+                                <img src="/images/dog4.png" alt="เป็นปัญหามาก">
+                                <span>เป็นปัญหามาก</span>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <button type="button"
+                        onclick="showQuestion('question7'); hideQuestion('question8')">ย้อนกลับ</button>
+                        <button type="button" onclick="validateAndNext('question8', 'question9')">ยืนยัน</button>
+
+                </div>
+                <div class="form-container" id="question9">
+                    <h2>คำถามข้อ 9 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>9. คุณจะดูแลทำความสะอาดสุนัขมากน้อยเพียงใด ?</h3>
+
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="clean" value="0">
+                            <div class="option">
+                                <img src="/images/grooming.png" alt="ทุกวัน">
+                                <span>ทุกวัน</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="clean" value="1">
+                            <div class="option">
+                                <img src="/images/grooming.png" alt="มากกว่า 3 ครั้งต่อสัปดาห์">
+                                <span>มากกว่า 3 ครั้งต่อสัปดาห์</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="clean" value="2">
+                            <div class="option">
+                                <img src="/images/grooming.png" alt="น้อยกว่า 3 ครั้งต่อสัปดาห์">
+                                <span>น้อยกว่า 3 ครั้งต่อสัปดาห์</span>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <button type="button" onclick="showQuestion('question8'); hideQuestion('question9')">ย้อนกลับ</button>
+                    <button type="button" onclick="validateAndNext('question9', 'question10')">ยืนยัน</button>
+                </div>
+                <div class="form-container" id="question10">
+                    <h2>คำถามข้อ 10 จากทั้งหมด 10 ข้อ</h2>
+                    <h3>10. คุณต้องการเลี้ยงสุนัขพันธุ์เล็ก พันธุ์กลาง หรือพันธุ์ใหญ่ ?</h3>
+
+                    <div class="options">
+
+                        <label>
+                            <input type="radio" name="breed" value="0">
+                            <div class="option">
+                                <img src="/images/work.png" alt="สุนัขพันธุ์เล็ก น้ำหนักน้อยกว่า 10 กิโลกรัม">
+                                <span>สุนัขพันธุ์เล็ก น้ำหนักน้อยกว่า 10 กิโลกรัม</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="breed" value="1">
+                            <div class="option">
+                                <img src="/images/work.png" alt="สุนัขพันธุ์กลาง น้ำหนัก 10-20 กิโลกรัม">
+                                <span>สุนัขพันธุ์กลาง น้ำหนัก 10-20 กิโลกรัม</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="breed" value="2">
+                            <div class="option">
+                                <img src="/images/work.png" alt="สุนัขพันธุ์ใหญ่ น้ำหนักมากกว่า 20 กิโลกรัม">
+                                <span>สุนัขพันธุ์ใหญ่ น้ำหนักมากกว่า 20 กิโลกรัม</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <button type="button"
+                        onclick="showQuestion('question9'); hideQuestion('question10')">ย้อนกลับ</button>
+                    <button type="submit">ยืนยัน</button>
+
+                </div>
+            </form>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
+
+        <script>
+            document.getElementById("question2").style.display = "none";
+            document.getElementById("question3").style.display = "none";
+            document.getElementById("question4").style.display = "none";
+            document.getElementById("question5").style.display = "none";
+            document.getElementById("question6").style.display = "none";
+            document.getElementById("question7").style.display = "none";
+            document.getElementById("question8").style.display = "none";
+            document.getElementById("question9").style.display = "none";
+            document.getElementById("question10").style.display = "none";
+            function showQuestion(id) {
+                document.getElementById(id).style.display = "block";
+            }
+            function hideQuestion(id) {
+                document.getElementById(id).style.display = "none";
+            }
+
+        </script>
 </body>
 
 </html>

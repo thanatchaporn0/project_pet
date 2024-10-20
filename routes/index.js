@@ -4,17 +4,13 @@ const router = express.Router();
 const UserModel = require('../model/user');
 
 
-
-
 router.get('/dogdetails', async function(req, res, next) {
   const dogs = await DogModel.find();
   console.log(dogs)
-
   res.render('allBreed', { dogs: dogs });
 });
 
 router.get('/content', async function(req, res, next) {
-
   res.render('content', );
 });
 
@@ -27,6 +23,8 @@ router.get('/dogdetails/:id', async function(req, res, next) {
     res.render('breed', { dogs: dogs });
   } catch (error) {
     console.log(error);
+  }
+});
 
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'home page' });
@@ -59,5 +57,3 @@ router.get('/adminhome',async function (req, res, next) {
 });
 
 module.exports = router;
-
-

@@ -10,7 +10,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: white;
+    background-color: #ffe6d4;
     border-bottom: 1px solid #ddd;
 }
 
@@ -122,23 +122,8 @@ button:hover {
     background-color: #ff4500;
 }
 
-
-/* .options {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start; 
-    margin-bottom: 20px;
+.options2{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-bottom: 10px;
 }
-
-.options {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    margin-bottom: 20px;
-}
-
-.option {
-    flex: 0 0 48%; 
-    box-sizing: border-box; 
-    margin-bottom: 10px; 
-} */

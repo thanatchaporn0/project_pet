@@ -1,36 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-<%if(sessions.loginsession) {%>
+    <style>
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
 
-    <header>
-        <div class="logo">
-            <img src="/images/logo.png" alt="Recommendation Breed Dog">
-            <span>Recommendation Breed Dog</span>
-        </div>
-        <div class="buttons">
-            <%=sessions.loginsession.email%>
-            <a href="/login/logout">Logout</a>
-            
-        </div>
-    </header>
-<%}else{%>
-    <header>
-        <div class="logo">
-            <img src="/images/logo.png" alt="Recommendation Breed Dog">
-            <span>Recommendation Breed Dog</span>
-        </div>
-        <div class="buttons">
-            <a href="/login"><button>เข้าสู่ระบบ</button></a>
-            <a href="/register"><button>ลงทะเบียน</button></a>
-        </div>
-    </header> 
-<%}%>
+        ul.nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav li {
+            display: inline;
+            list-style-type: none;
+            margin: 8px;
+        }
+
+        .nav li a {
+            color: #f57c00;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <%if(sessions.loginsession){%>
+
+        <header>
+            <div class="logo">
+                <img src="/images/logo.png" alt="Recommendation Breed Dog">
+                <span>Recommendation Breed Dog</span>
+            </div>
+            <ul class="nav">
+                <li>
+                    <a href="/">แนะนำพันธุ์สุนัข</a>
+                </li>
+                <li>
+                    <a href="/dogdetails">สายพันธุ์สุนัข</a>
+                </li>
+                <li>
+                    <a href="/content">เตรียมความพร้อมสำหรับเลี้ยงสุนัข</a>
+                </li>
+                <li>
+                    <a href="">ประวัติแนะนำพันธุ์สุนัข</a>
+                </li>
+            </ul>
+            <ul class="menu">
+                <li class="">
+                    <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <%=sessions.loginsession.email %>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/viewProfile">Profile</a></li>
+                        <li><a class="dropdown-item"
+                                href="/login/editproflie/<%=sessions.loginsession._id%>">แก้ไขบัญชี</a></li>
+                        <li><a class="dropdown-item" href="/login/logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+
+        <%}else{%>
+            <header>
+                <div class="logo">
+                    <img src="/images/logo.png" alt="Recommendation Breed Dog">
+                    <span>Recommendation Breed Dog</span>
+                </div>
+                <div class="buttons">
+                    <a href="/login"><button>เข้าสู่ระบบ</button></a>
+                    <a href="/register"><button>ลงทะเบียน</button></a>
+                </div>
+
+            </header>
+            <%}%>
+
 
 </body>
+
 </html>

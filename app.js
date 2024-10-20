@@ -15,9 +15,6 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 
 
-
-
-
 var app = express();
 const sessionConfig = {
   secret: 'secret',
@@ -32,6 +29,7 @@ app.use(function(req, res, next) {
   res.locals.cookies = req.cookies
   next();
 });
+app.use('/bscss', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

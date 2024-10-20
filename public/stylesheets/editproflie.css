@@ -1,0 +1,48 @@
+.container{
+    justify-content: center;
+    align-items: center;
+}
+.grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% auto;
+    justify-content: center;
+    align-items: center;
+
+}
+.flex1 p{
+    margin: 20px;
+    padding: 10px;
+    width: 300px;
+}
+.flex2 input[type=text]{
+    padding: 10px;
+    width: 500px;
+    margin: 10px;
+   
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.flex2 select{
+    padding: 10px;
+    width: 500px;
+    margin: 10px;
+   
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+button{
+    padding: 10px 20px;
+    background-color: #f57c00;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+.butt{
+    display: flex;
+    justify-content: flex-end; 
+
+
+}

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="/stylesheets/register.css">
 </head>
+
 <body>
     <div class="register-container">
         <div class="register-header">
@@ -27,6 +29,21 @@
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="input-group">
+                    <label for="cars">เพศ</label>
+
+                    <select name="sex" id="sex">
+                        <option value="ชาย">ชาย</option>
+                        <option value="หญิง">หญิง</option>
+                        <option value="ไม่ระบุเพศ">ไม่ระบุเพศ</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="name">อายุ</label>
+                    <input type="text" id="age" name="age" required>
+                  
+                </div>
+
+                <div class="input-group">
                     <label for="password">รหัสผ่าน</label>
                     <input type="password" id="password" name="password" required>
                 </div>
@@ -39,4 +56,5 @@
         </div>
     </div>
 </body>
+
 </html>

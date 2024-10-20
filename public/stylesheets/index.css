@@ -84,7 +84,7 @@ p {
 }
 
 .dog-images img {
-  width: 600px; /* ความกว้าง */
-  height: 200px; /* ความสูง */
+  width: 600px; 
+  height: 200px; 
   margin: 0 10px;
 }

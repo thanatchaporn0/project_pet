@@ -1,3 +1,4 @@
+
 body{
   font-family: "Sarabun", sans-serif;
   font-weight: 100;
@@ -196,3 +197,45 @@ ul li a img{
 .breed-table td .delete-btn:hover {
   background-color: #FC2012;
 }
+ 
+
+
+/* Parn  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+  }
+
+  .layout{
+    display :flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 70%;
+  }
+  
+  th, td {
+    padding: 15px;
+  }
+
+  .header{
+    background-color: #f57c00;
+  }
+
+  .header td{
+    color: white;
+  }

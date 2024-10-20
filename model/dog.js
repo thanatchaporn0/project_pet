@@ -12,6 +12,5 @@ const dogSchema = new Schema({
     image:String
 
 });
-//ทำโครงสร้างไว้ก่อน
 
 module.exports = mongoose.model('Dog', dogSchema);

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายละเอียดพันธุ์สุนัข</title>
+  <link rel="stylesheet" href="/stylesheets/dogdetails.css">
+</head>
+
+<body>
+  <div class="layout">
+    <table>
+
+      <tr class="header">
+        <td>
+          ลำดับ
+        </td>
+
+        <td>
+          พันธุ์สุนัข
+        </td>
+
+      </tr>
+
+    <% dogs.forEach((dog, index)=> { %>
+
+      <tr>
+        <td>
+          <%= index + 1 %>
+        </td>
+
+        <td>
+          <a href="/dogdetails/<%=dog._id%>" rel="noopener noreferrer">
+            <%= dog.breed %>
+          </a><br>
+        </td>
+
+        <!-- <td><button class="edit-btn" data-id="<%= dog.id %>">แก้ไข</button></td>
+          <td><button class="delete-btn" data-id="<%= dog.id %>">ลบ</button></td> -->
+
+      </tr>
+
+      <% }) %>
+    </table>
+  </div>
+  <script src="/js/dogdetails.js"></script>
+</body>
+
+</html>

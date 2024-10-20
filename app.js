@@ -13,6 +13,8 @@ var breedRouter = require('./routes/breed');
 var formRouter = require('./routes/form');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
+var dogdetailsRouter = require('./routes/dogdetails');
+var userdetailsRouter = require('./routes/userdetails');
 
 var app = express();
 const sessionConfig = {
@@ -46,6 +48,8 @@ app.use('/breeddog', breeddogRouter);
 app.use('/breed', breedRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
+app.use('/dogdetails', dogdetailsRouter);
+app.use('/userdetails', userdetailsRouter);
 
 
 app.get('/', (req, res) => {
@@ -64,9 +68,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 

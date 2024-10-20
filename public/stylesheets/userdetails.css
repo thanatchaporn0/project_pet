@@ -1,7 +1,7 @@
 body{
-  font-family: "Sarabun", sans-serif;
-  font-weight: 100;
-  font-style: normal;
+    font-family: "Sarabun", sans-serif;
+    font-weight: 100;
+    font-style: normal;
 }
 .container{
   display: grid;
@@ -78,7 +78,7 @@ ul li a img{
   border-radius: 15px;
   padding: 10px 0;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   font-weight: bold;
   width: 100%;
@@ -97,47 +97,85 @@ ul li a img{
 
 /* Container for the content */
 .content {
-  padding: 20px;
   background-color: white;
-  margin: 20px;
 }
 
 /* Header styling */
 .header {
-  font-size: 30px;
+  font-size: 24px;
   color: #F29040;
   margin-bottom: 20px;
 }
 
-/* Card styling */
-.card {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  background-color: #fdeee4;
-  border: 2px solid #9E4632;
-  border-radius: 15px;
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+  border: 1px solid #ddd;
+  padding: 15px;
   text-align: center;
-  padding: 20px;
-  margin: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
 }
 
-.card img {
-  width: 60px;
-  height: 50px;
-  margin-bottom: 20px;
-}
-
-.card-title {
-  font-size: 24px;
-  color: #c77453;
-  margin-bottom: 20px;
-}
-
-.card-count {
-  font-size: 26px;
-  color: #c77453;
+.user-table th {
+  background-color: #F29040;
+  color: white;
   font-weight: bold;
 }
 
+.user-table td img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-table td {
+  background-color: #fff;
+}
+
+
+/* Button styling */
+.edit-btn,
+.delete-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #FCC812;
+}
+
+.delete-btn {
+  background-color: #FC2012;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #FC2012;
+}
+
+/* Make the table responsive */
+@media (max-width: 768px) {
+  .user-table {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 16px;
+  }
+}

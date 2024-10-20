@@ -1,7 +1,7 @@
 body{
-  font-family: "Sarabun", sans-serif;
-  font-weight: 100;
-  font-style: normal;
+    font-family: "Sarabun", sans-serif;
+    font-weight: 100;
+    font-style: normal;
 }
 .container{
   display: grid;
@@ -38,16 +38,16 @@ body{
 }
 .sidebar .user-email {
   margin-top: 20px;
-  font-size: 18px;
+  font-size: 16px;
   color: #E67B19;
 }
 ul{
   list-style: none;
-  margin: 30;
+  margin: 0;
   padding: 0;
 }
 ul li a p{
-  color: #3D3A38;
+  color: black;
 }
 ul .active a p{
   color: white;
@@ -78,7 +78,7 @@ ul li a img{
   border-radius: 15px;
   padding: 10px 0;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   font-weight: bold;
   width: 100%;
@@ -95,49 +95,68 @@ ul li a img{
   color: white;
 }
 
-/* Container for the content */
 .content {
   padding: 20px;
   background-color: white;
-  margin: 20px;
+  margin: 1px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding-top: 0;
 }
 
-/* Header styling */
-.header {
-  font-size: 30px;
-  color: #F29040;
-  margin-bottom: 20px;
-}
 
-/* Card styling */
-.card {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  background-color: #fdeee4;
-  border: 2px solid #9E4632;
-  border-radius: 15px;
-  text-align: center;
-  padding: 20px;
-  margin: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card img {
-  width: 60px;
-  height: 50px;
-  margin-bottom: 20px;
-}
-
-.card-title {
+h1 {
   font-size: 24px;
-  color: #c77453;
+  color: #f48940;
   margin-bottom: 20px;
 }
 
-.card-count {
-  font-size: 26px;
-  color: #c77453;
-  font-weight: bold;
+form {
+  display: flex;
+  flex-direction: column;
 }
 
+label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="file"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 50%;
+}
+
+input[type="file"] {
+  padding: 5px;
+  width: 50;
+  border: none;
+}
+
+button.submit-btn {
+  margin-left:auto;
+  background-color: #01D00D;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  
+}
+
+button.submit-btn:hover {
+  background-color: #01D00D;
+  
+}
+
+.laout {
+  width: 52%;
+  align-items: flex-end;
+  display: flex;
+}

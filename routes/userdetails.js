@@ -14,5 +14,16 @@ router.get('/', async(req, res) => {
 
 });
 
+router.get('/delete/:id', async (req, res) => {
+    try {
+        const result = await UserModel.findOneAndDelete({ _id: req.params.id })
+        res.redirect("/userdetails")
+
+    } catch (error) {
+        console.log(error)
+    }
+
+});
+
 
 module.exports = router;

@@ -46,3 +46,12 @@ button{
 
 
 }
+
+.title{
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.title h5{
+    text-align: center;
+}

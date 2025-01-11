@@ -92,10 +92,16 @@ label input[type="radio"] {
     display: none;
 }
 
-label input[type="radio"]:checked + .option {
-    background-color: #ff7f50;
-    border-color: #ff4500;
-    color: white;
+label input[type="radio"]:checked+.option {
+    border: #ff4500 solid 10px;
+}
+
+label input[type="checkbox"] {
+    display: none;
+}
+
+label input[type="checkbox"]:checked+.option {
+    border: #ff4500 solid 10px;
 }
 
 .option img {
@@ -103,6 +109,7 @@ label input[type="radio"]:checked + .option {
     height: 100px;
     margin-bottom: 10px;
 }
+
 
 .option span {
     font-size: 16px;
@@ -122,7 +129,7 @@ button:hover {
     background-color: #ff4500;
 }
 
-.options2{
+.options2 {
     display: grid;
     grid-template-columns: auto auto auto;
     margin-bottom: 10px;

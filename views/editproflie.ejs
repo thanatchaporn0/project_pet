@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dog Breed Recommendation System</title>
     <link rel="stylesheet" href="/stylesheets/editproflie.css">
     <link rel="stylesheet" href="/stylesheets/index.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
@@ -19,43 +19,51 @@
 
         <div class="container">
             <form action="/login/editproflie/<%=user._id%>" method="POST">
-
+                
+                <div class="title">
+                    <br>
+                <h5>แก้ไขบัญชี</h5><br>
                 <div class="grid">
                     <div class="flex1">
+
                         <p>ชื่อ - นามสกุล</p>
                         <p>อีเมล</p>
                         <p>เพศ</p>
                         <p>อายุ</p>
                         <p></p>
-
                     </div>
 
                     <div class="flex2">
 
                         <input type="text" name="name" value="<%=user.name%>"><br>
                         <input type="text" name="email" value="<%=user.email%>""><br>
-                        <% if(user.sex == "ชาย"){ %>
-                            <select name="sex" id="">
-                                <option value="<%=user.sex%>"><%=user.sex%></option>
-                                <option value="หญิง">หญิง</option>
-                            </select><br>
+                        
+                        <% if(user.sex == " ชาย"){ %>
+                        <select name="sex" id="">
+                            <option value="<%=user.sex%>">
+                                <%=user.sex%>
+                            </option>
+                            <option value="หญิง">หญิง</option>
+                        </select><br>
 
-                          <% } else{ %>  
+                        <% } else{ %>
                             <select name="sex" id="">
-                                <option value="<%=user.sex%>"><%=user.sex%></option>
+                                <option value="<%=user.sex%>">
+                                    <%=user.sex%>
+                                </option>
                                 <option value="ชาย">ชาย</option>
                             </select><br>
-                         <% } %>
-                        
-                        <input type="text" name="age" value="<%=user.age%>"><br>
+                            <% } %>
 
-                        <div class="butt">
-                            <button type="submit">บันทึก </button>
-                        </div>
+                                <input type="text" name="age" value="<%=user.age%>"><br>
+
+                                <div class="butt">
+                                    <button type="submit">บันทึก </button>
+                                </div>
 
                     </div>
                 </div>
-
+            </div>
             </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

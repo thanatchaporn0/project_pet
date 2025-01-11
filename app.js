@@ -32,7 +32,7 @@ app.use(function(req, res, next) {
 });
 app.use('/bscss', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
-// view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -49,7 +49,7 @@ app.use('/breeddog', breeddogRouter);
 app.use('/breed', breedRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/dogdetails', dogdetailsRouter);
+app.use('/dog', dogdetailsRouter);
 app.use('/userdetails', userdetailsRouter);
 
 

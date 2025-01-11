@@ -1,162 +1,193 @@
 body{
-    font-family: "Sarabun", sans-serif;
-    font-weight: 100;
-    font-style: normal;
+  font-family: "Sarabun", sans-serif;
+  font-weight: 100;
+  font-style: normal;
 }
 .container{
-  display: grid;
-  grid-template-columns: 22% auto;
-  
+display: grid;
+grid-template-columns: 22% auto;
+
 }
 .sidebar{
-  border-right: 1px solid grey;
-  margin-left: 0;
-  padding: 10px;
-  height:100vh ;
+margin-left: 0;
+padding: 10px;
+height:100% ;
 }
 .content{
-  padding: 10px;
-  height:100vh ;
-  
+padding: 10px;
+height:100vh ;
+
 }
 .sidebar .user-info {
-  text-align: center;
+text-align: center;
 
 }
 
 .sidebar .user-avatar {
-  background-color: #E67B19;
-  color: white;
-  font-size: 24px;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+background-color: #E67B19;
+color: white;
+font-size: 24px;
+width: 70px;
+height: 70px;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0 auto;
 }
 .sidebar .user-email {
-  margin-top: 20px;
-  font-size: 16px;
-  color: #E67B19;
+margin-top: 20px;
+font-size: 16px;
+color: #E67B19;
 }
 ul{
-  list-style: none;
-  margin: 0;
-  padding: 0;
+list-style: none;
+margin: 0;
+padding: 0;
 }
 ul li a p{
-  color: black;
+color: black;
 }
 ul .active a p{
-  color: white;
+color: white;
 }
 ul li a{
-  text-decoration: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding:0 10px 0 10px;
+text-decoration: none;
+display: flex;
+flex-direction: row;
+align-items: center;
+padding:0 10px 0 10px;
 
 }
 ul .active a{
-  background-color: #E67B19;
-  border-radius:20px ;
+background-color: #E67B19;
+border-radius:20px ;
 
 }
 ul li a img{
-  width: 30px;
-  height: 30px;
-  margin-right: 20px;
- 
+width: 30px;
+height: 30px;
+margin-right: 20px;
+
 }
 .logout {
-  border: 3px solid #E67B19;
-  background-color: white;
-  color: #E67B19;
-  border-radius: 15px;
-  padding: 10px 0;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: bold;
-  width: 100%;
-  
+border: 3px solid #E67B19;
+background-color: white;
+color: #E67B19;
+border-radius: 15px;
+padding: 10px 0;
+text-align: center;
+font-size: 16px;
+cursor: pointer;
+font-weight: bold;
+width: 100%;
+
 }
 .layout_logout{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 22%;
+position: absolute;
+bottom: 0;
+left: 0;
+width: 22%;
 }
 .logout:hover {
-  background-color: #E67B19;
-  color: white;
+background-color: #E67B19;
+color: white;
 }
 
 .content {
-  padding: 20px;
-  background-color: white;
-  margin: 1px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding-top: 0;
+padding: 20px;
+background-color: white;
+margin: 1px;
+border-radius: 8px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+padding-top: 0;
 }
 
 
 h1 {
-  font-size: 24px;
-  color: #f48940;
-  margin-bottom: 20px;
+font-size: 24px;
+color: #f48940;
+margin-bottom: 20px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
 }
 
 label {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #333;
+display: block;
+font-size: 16px;
+margin-bottom: 10px;
+color: #333;
+}
+
+/* Form Group */
+.form-group {
+margin-bottom: 15px;
+}
+
+/* Dropdown */
+select {
+appearance: none;
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path fill="%23333" d="M0 0l5 6 5-6z"/></svg>');
+background-repeat: no-repeat;
+background-position: right 10px center;
+background-size: 10px 6px;
+}
+
+/* Input Fields */
+input[type="text"], select, input[type="file"] {
+width: 50%;
+padding: 10px;
+font-size: 14px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #fff;
+margin-bottom: 1px;
+color: #454545;
 }
 
 input[type="text"],
 input[type="file"] {
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 50%;
+padding: 10px;
+margin-bottom: 1px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+width: 50%;
+color: #454545;
 }
 
 input[type="file"] {
-  padding: 5px;
-  width: 50;
-  border: none;
+padding: 5px;
+width: 50;
+border: none;
 }
 
 button.submit-btn {
-  margin-left:auto;
-  background-color: #01D00D;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  
+margin-left:auto;
+background-color: #01D00D;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+
 }
 
 button.submit-btn:hover {
-  background-color: #01D00D;
-  
+background-color: #01D00D;
+
 }
 
 .laout {
-  width: 52%;
-  align-items: flex-end;
+width: 50%;
+display: flex;
+
+}
+
+.checkbox{
   display: flex;
 }

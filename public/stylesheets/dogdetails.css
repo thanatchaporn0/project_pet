@@ -239,3 +239,6 @@ ul li a img{
   .header td{
     color: white;
   }
+  td a{
+    text-decoration: none;
+  }

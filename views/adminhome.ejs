@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Home</title>
+  <title>Dog Breed Recommendation System</title>
   <link rel="stylesheet" href="/stylesheets/adminhome.css">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -22,7 +22,7 @@
           <%=sessions.loginsession.name.charAt(0).toUpperCase()%>
         </div>
         <div class="user-email">
-          <%=sessions.loginsession.email%>
+          <%=sessions.loginsession.name%>
         </div>
       </div>
 
@@ -36,7 +36,7 @@
 
 
         <li   >
-          <a href="/dogdetails">
+          <a href="/dog">
             <img src="/images/จัดการพันธุ์สุนัข.png" alt="จัดการพันธุ์สุนัข">
             <p>จัดการพันธุ์สุนัข</p>
           </a>
@@ -52,7 +52,7 @@
           
             
         </li>
-        <li class="layout_logout">
+        <li>
           <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
         </li>
       </ul>

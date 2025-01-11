@@ -1,3 +1,4 @@
+//java
 document.addEventListener('DOMContentLoaded', () => {
     const logoutButton = document.querySelector('.logout');
 

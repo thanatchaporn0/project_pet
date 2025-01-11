@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Details
-    </title>
+    <title>Dog Breed Recommendation System</title>
     <link rel="stylesheet" href="/stylesheets/dogdetails.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,9 +20,9 @@
             editButtons.forEach(button => {
                 button.addEventListener("click", (event) => {
                     const breedId = event.target.dataset.id;
-                    // Logic for editing breed
+                  
                     alert(`Edit breed with ID: ${breedId}`);
-                    // Redirect or open form for editing
+                 
                 });
             });
 
@@ -31,17 +30,17 @@
                 button.addEventListener("click", (event) => {
                     const breedId = event.target.dataset.id;
                     if (confirm("Are you sure you want to delete this breed?")) {
-                        // Logic for deleting breed
+                      
                         alert(`Delete breed with ID: ${breedId}`);
-                        // Send delete request or remove breed from table
+                        
                     }
                 });
             });
 
-            // Add button functionality
+            // Add button 
             document.getElementById("addBreed").addEventListener("click", () => {
                 alert("Redirecting to add breed page...");
-                // Logic to redirect or open form for adding a breed
+                
             });
         });
 

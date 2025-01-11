@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Details</title>
+  <title>Dog Breed Recommendation System</title>
   <link rel="stylesheet" href="/stylesheets/userdetails.css">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -12,7 +12,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-</head>
+
+    <script>
+      function confirmDelete() {
+      return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้?'); // แสดงกล่องข้อความยืนยัน
+  }
+   </script>
+
+  </head>
 
 <body>
   <div class="container">
@@ -22,7 +29,7 @@
           <%=sessions.loginsession.name.charAt(0).toUpperCase()%>
         </div>
         <div class="user-email">
-          <%=sessions.loginsession.email%>
+          <%=sessions.loginsession.name%>
         </div>
       </div>
 
@@ -36,7 +43,7 @@
 
 
         <li>
-          <a href="/dogdetails">
+          <a href="/dog">
             <img src="/images/จัดการพันธุ์สุนัข.png" alt="จัดการพันธุ์สุนัข">
             <p>จัดการพันธุ์สุนัข</p>
           </a>
@@ -51,7 +58,7 @@
         <li>
           
         </li>
-        <li class="layout_logout">
+        <li>
           <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
         </li>
       </ul>
@@ -67,8 +74,10 @@
         <thead>
           <tr>
             <th>ลำดับ</th>
+            <th>อีเมล</th>
             <th>ชื่อ</th>
-            <th>แก้ไข</th>
+            <th>เพศ</th>
+            <th>อายุ</th>
             <th>ลบ</th>
           </tr>
         </thead>
@@ -79,16 +88,26 @@
               <td>
                 <%= index + 1 %>
               </td>
-
-              <td>
-                <a href="/dogdetails/<%=user._id%>" rel="noopener noreferrer">
-                  <%= user.name %>
-                </a><br>
+              <td >
+                <p><%= user.email %></p>
+               
               </td>
-
-
-              <td><button class="edit-btn" data-id="<%= user.id %>">แก้ไข</button></td>
-              <td><button class="delete-btn" data-id="<%= user.id %>">ลบ</button></td>
+              <td >
+                <p><%= user.name %></p>
+               
+              </td>
+              <td >
+                <p><%= user.sex %></p>
+               
+              </td>
+              <td >
+                <p><%= user.age %></p>
+               
+              </td>
+            
+              <td><a href="/userdetails/delete/<%= user._id %>" onclick="return confirmDelete();">
+                <button class="delete-btn">ลบ</button>
+            </a></td>
             </tr>
 
             <% }) %>

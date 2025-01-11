@@ -7,7 +7,7 @@ const HistorySchema = new mongoose.Schema({
         "Ischildren":String,
         "IsOtheranimal":String,
         "space":String,
-        "preferredbehavior":String,
+        "preferredbehavior":[{type:String}],
         "noiseproblem":String,
         "clean":String,
         "breed":String,

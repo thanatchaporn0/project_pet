@@ -1,0 +1,204 @@
+body{
+    font-family: "Sarabun", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  .container{
+    display: grid;
+    grid-template-columns: 22% auto;
+    
+  }
+  .sidebar{
+
+    margin-left: 0;
+    padding: 10px;
+    height:100% ;
+  }
+  .content{
+    padding: 10px;
+    height:100vh ;
+    
+  }
+  .sidebar .user-info {
+    text-align: center;
+  
+  }
+  
+  .sidebar .user-avatar {
+    background-color: #E67B19;
+    color: white;
+    font-size: 24px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .sidebar .user-email {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #E67B19;
+  }
+  ul{
+    list-style: none;
+    margin: 30;
+    padding: 0;
+  }
+  ul li a p{
+    color: #3D3A38;
+  }
+  ul .active a p{
+    color: white;
+  }
+  
+  ul li a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding:0 10px 0 10px;
+  
+  }
+  ul .active a{
+    background-color: #E67B19;
+    border-radius:20px ;
+  
+  }
+  ul li a img{
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+   
+  }
+  .logout {
+    border: 3px solid #E67B19;
+    background-color: white;
+    color: #E67B19;
+    border-radius: 15px;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    
+  }
+  .layout_logout{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 22%;
+  }
+  .logout:hover {
+    background-color: #F29040;
+    color: white;
+  }
+  #popupForm {
+    width: '80%';
+    background-color: #F29040;
+    position: fixed;
+    z-index: 9;
+    margin:auto;
+  }
+  
+  /* Container for the content */
+  .content {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+  }
+  
+  /* Header styling */
+  .header {
+    font-size: 24px;
+    color: #F29040;
+    margin-bottom: 20px;
+  }
+  
+  /* Button to add a new breed */
+  .actions {
+    margin-bottom: 20px;
+  }
+  
+  .add-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .add-btn:hover {
+    background-color: #0066DF;
+  }
+  
+  /* Table styling */
+  .breed-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .breed-table th, .breed-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .breed-table th {
+    background-color: #F29040;
+    color: white;
+    font-weight: bold;
+  }
+  .imagedog{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  
+  }
+  .breed-table td img {
+    width: 60%;
+    object-fit: cover;
+  }
+  
+  .breed-table td {
+    background-color: #fff;
+  }
+  
+  /* Buttons for editing and deleting */
+  .breed-table td button {
+    width: 80px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .breed-table td .edit-btn {
+    background-color: #FCC812;
+    color: #fff;
+  }
+  
+  .breed-table td .edit-btn:hover {
+    background-color: #FCC812;
+  }
+  
+  .breed-table td .delete-btn {
+    background-color: #FC2012;
+    color: #fff;
+  }
+  
+  .breed-table td .delete-btn:hover {
+    background-color: #FC2012;
+  }
+  td a {
+    text-decoration: none;
+  }

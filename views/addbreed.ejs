@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>เพิ่มพันธุ์สุนัข</title>
+  <title>Dog Breed Recommendation System</title>
   <link rel="stylesheet" href="/stylesheets/addbreed.css">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -24,7 +24,7 @@
           <%=sessions.loginsession.name.charAt(0).toUpperCase()%>
         </div>
         <div class="user-email">
-          <%=sessions.loginsession.email%>
+          <%=sessions.loginsession.name%>
         </div>
       </div>
 
@@ -51,7 +51,7 @@
           </a>
         </li>
 
-        <li class="layout_logout">
+        <li>
           <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
         </li>
       </ul>
@@ -61,30 +61,151 @@
 
     <div class="content">
       <h1>เพิ่มพันธุ์สุนัข</h1>
-      <form action="/dogdetails/addbreed" method="POST" enctype="multipart/form-data">
-        <label for="topic">ชื่อพันธุ์สุนัข</label>
-        <input type="text" id="topic" name="breed"><br>
-        <label for="topic">รูปร่างลักษณะ</label>
-        <input type="text" id="topic" name="appearance"><br>
-        <label for="topic">ปัญหาที่พบทั่วไป</label>
-        <input type="text" id="topic" name=""><br>
-        <label for="topic">อายุเฉลี่ย</label>
-        <input type="text" id="topic" name="averageAge"><br>
-        <label for="topic">นิสัย</label>
-        <input type="text" id="topic" name="behavior"><br>
-        <label for="topic">การออกกำลังกาย</label>
-        <input type="text" id="topic" name="exercise"><br>
-        <label for="topic">การเฝ้าระวัง</label>
-        <input type="text" id="topic" name="watchdog"><br>
+      <form action="/dog/addbreed" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="breed">ชื่อพันธุ์สุนัข</label>
+          <input type="text" id="breed" name="breed" required>
+        </div>
+        <div class="form-group">
+          <label for="behavior">นิสัย</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="เป็นมิตร">
+          <label for="vehicle1"> เป็นมิตร</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="ใจดี">
+          <label for="vehicle1"> ใจดี</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="กระตือรือร้น">
+          <label for="vehicle1"> กระตือรือร้น</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="ร่าเริง">
+          <label for="vehicle1"> ร่าเริง</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="กล้าหาญ">
+          <label for="vehicle1"> กล้าหาญ</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="มีความมั่นใจ">
+          <label for="vehicle1"> มีความมั่นใจ</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="ฉลาด">
+          <label for="vehicle1"> ฉลาด</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="จงรักเจ้าของ">
+          <label for="vehicle1"> จงรักเจ้าของ</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="เชื่อฟังคำสั่ง">
+          <label for="vehicle1"> เชื่อฟังคำสั่ง</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="เป็นนักสำรวจ ">
+          <label for="vehicle1"> เป็นนักสำรวจ </label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="เป็นตัวของตัวเอง">
+          <label for="vehicle1"> เป็นตัวของตัวเอง</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="หวงอาณาเขต">
+          <label for="vehicle1"> หวงอาณาเขต</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="รักสงบ">
+          <label for="vehicle1"> รักสงบ</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="behavior" id="behavior" value="ก้าวร้าว">
+          <label for="vehicle1"> ก้าวร้าว</label>
+        </div><br>
+
+        <div class="form-group">
+          <label for="commonissue">โรคหรือความผิดปกติที่พบ</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบผิวหนัง">
+          <label for="vehicle1"> โรคระบบผิวหนัง</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบกระดูก">
+          <label for="vehicle1"> โรคระบบกระดูก</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบประสาท">
+          <label for="vehicle1"> โรคระบบประสาท</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบไหลเวียนโลหิต">
+          <label for="vehicle1"> โรคระบบไหลเวียนโลหิต</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคเกี่ยวกับนัยตา">
+          <label for="vehicle1"> โรคเกี่ยวกับนัยตา</label>
+        </div>
+
+
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="ความผิดปกติของต่อมไร้ท่อ">
+          <label for="vehicle1"> ความผิดปกติของต่อมไร้ท่อ</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="ก้อนเนื้อผิดปกติ">
+          <label for="vehicle1"> ก้อนเนื้อผิดปกติ</label>
+        </div><br>
+
+        <div class="form-group">
+          <label for="appearance">รูปร่างลักษณะ</label>
+          <select id="appearance" name="appearance" required>
+            <option style="display:none">รูปร่างลักษณะ</option>
+            <option value="รูปร่างเล็ก">รูปร่างเล็ก</option>
+            <option value="รูปร่างปานกลาง">รูปร่างปานกลาง</option>
+            <option value="รูปร่างใหญ่">รูปร่างใหญ่</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="averageAge">อายุเฉลี่ย</label>
+          <select id="averageAge" name="averageAge" required>
+            <option style="display:none">อายุเฉลี่ย</option>
+            <option value="14 ปี">14 ปี</option>
+            <option value="13 ปี">13 ปี</option>
+            <option value="12 ปี">12 ปี</option>
+            <option value="10 ปี">10 ปี</option>
+            <option value="8 ปี">8 ปี</option>
+
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exercise">การออกกำลังกาย</label>
+          <select id="exercise" name="exercise" required>
+            <option style="display:none">การออกกำลังกาย</option>
+            <option value="ต้องการ">ต้องการ</option>
+            <option value="ไม่ต้องการ">ไม่ต้องการ</option>
+
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="watchdog">การเฝ้าระวัง</label>
+          <select id="watchdog" name="watchdog" required>
+            <option style="display:none">การเฝ้าระวัง</option>
+            <option value="ระดับดี">ระดับดี</option>
+            <option value="ระดับต่ำ">ระดับต่ำ</option>
+          </select>
+        </div>
         <label for="topic">รูปภาพ</label>
 
-        <input type="file" class="form-control form-control-sm mt-5" id="imageUpload" name="image" value=""
-          accept=".png, .jpg, .jpeg .gif" required /><br>
         <div class="laout">
+          <input type="file" class="form-control form-control-sm mt-5" id="imageUpload" name="image" value=""
+            accept=".png, .jpg, .jpeg .gif" required /><br>
           <button type="submit" class="submit-btn">ยืนยัน</button>
         </div>
       </form>
-
     </div>
   </div>
 

@@ -3,7 +3,6 @@ var router = express.Router();
 const UserModel = require('../model/user');
 
 
-
 router.get('/', (req, res) => {
     if (!req.session.loginsession) {
         res.render('login');
@@ -13,15 +12,36 @@ router.get('/', (req, res) => {
     }
 });
 
+
 router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/');
 
 });
+
+
 router.get('/forgotPassword', async (req, res) => {
     res.render('forgotPassword');
 });
 
+
+router.get('/editproflie/:id', async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.params.id);
+        console.log(user)
+        if (user) {
+            res.render('editproflie', { user: user });
+        } else {
+            res.status(404).send("User not found");
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("Internal server error");
+    }
+});
+
+
+//post
 router.post('/forgotPassword', async (req, res) => {
     const { email, password, confirmPassword } = req.body;
     if (password !== confirmPassword) {
@@ -42,23 +62,8 @@ router.post('/forgotPassword', async (req, res) => {
     }
 });
 
-router.get('/editproflie/:id', async (req, res) => {
-    try {
-        const user = await UserModel.findById(req.params.id);
-        console.log(user)
-        if (user) {
-            res.render('editproflie', { user: user });
-        } else {
-            res.status(404).send("User not found");
-        }
-    } catch (error) {
-        console.log(error);
-        res.status(500).send("Internal server error");
-    }
-});
 
 
-//post
 router.post('/', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -77,8 +82,8 @@ router.post('/', async (req, res) => {
 });
 
 
-router.post('/editproflie/:id', async (req, res) => {
-    const { email, name, sex, age } = req.body;
+router.post('/editproflie/:id', async (req, res) => {    //: พารามิเตอร์ 
+    const { email, name, sex, age } = req.body;     //ดึง
     try {
         const updatedUser = await UserModel.findByIdAndUpdate(req.params.id, {
             email,

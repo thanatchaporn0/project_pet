@@ -5,7 +5,7 @@ const dogSchema = new Schema({
     breed: String,
     appearance:String,
     commonissue:[{type:String}],
-    behavior:String,
+    behavior:[{type:String}],
     averageAge:String,
     exercise:String,
     watchdog:String,

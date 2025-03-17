@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dog Breed Recommendation System</title>
+  <title>Dog Breeds-addbreed</title>
   <link rel="stylesheet" href="/stylesheets/addbreed.css">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -14,6 +14,46 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+            let form = document.querySelector("form");
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // ป้องกันการส่งฟอร์มไปทันที
+
+                // ส่งข้อมูลไปยังเซิร์ฟเวอร์ผ่าน Fetch API (หรือสามารถใช้ AJAX ได้)
+                fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form)
+                }).then(response => {
+                    if (response.ok) {
+                        Swal.fire({
+                            title: "เพิ่มข้อมูลสำเร็จ!",
+                            text: "ข้อมูลของคุณถูกอัปเดตเรียบร้อยแล้ว",
+                            iconHtml: '<img src="https://i.gifer.com/7efs.gif" width="200">', // ใช้ GIF เป็น Icon
+                            showConfirmButton: false,
+                            timer: 2000 // ปิดอัตโนมัติใน 2 วินาที
+                        }).then(() => {
+                            window.location.reload(); // รีเฟรชหน้าเพื่ออัปเดตข้อมูล
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "เกิดข้อผิดพลาด!",
+                            text: "ไม่สามารถแก้ไขข้อมูลได้ กรุณาลองใหม่อีกครั้ง",
+                            icon: "error"
+                        });
+                    }
+                }).catch(() => {
+                    Swal.fire({
+                        title: "เกิดข้อผิดพลาด!",
+                        text: "กรุณาตรวจสอบการเชื่อมต่อของคุณ",
+                        icon: "error"
+                    });
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -36,9 +76,8 @@
           </a>
         </li>
 
-
         <li class="active">
-          <a href="/dogdetails">
+          <a href="/dog">
             <img src="/images/จัดการพันธุ์สุนัขสีขาว.png" alt="จัดการพันธุ์สุนัข">
             <p>จัดการพันธุ์สุนัข</p>
           </a>
@@ -52,11 +91,16 @@
         </li>
 
         <li>
+          <a href="/editPage">
+              <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+              <p>จัดการเนื้อหา</p>
+          </a>
+      </li>
+
+        <li>
           <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
         </li>
       </ul>
-
-
     </div>
 
     <div class="content">
@@ -130,35 +174,50 @@
           <label for="commonissue">โรคหรือความผิดปกติที่พบ</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบผิวหนัง">
-          <label for="vehicle1"> โรคระบบผิวหนัง</label>
-        </div>
-        <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบกระดูก">
-          <label for="vehicle1"> โรคระบบกระดูก</label>
-        </div>
-        <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบประสาท">
-          <label for="vehicle1"> โรคระบบประสาท</label>
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบทางเดินหายใจ">
+          <label for="vehicle1"> โรคระบบทางเดินหายใจ</label>
         </div>
         <div class="checkbox">
           <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบไหลเวียนโลหิต">
           <label for="vehicle1"> โรคระบบไหลเวียนโลหิต</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value="โรคเกี่ยวกับนัยตา">
-          <label for="vehicle1"> โรคเกี่ยวกับนัยตา</label>
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบกระดูก">
+          <label for="vehicle1"> โรคระบบกระดูก</label>
         </div>
-
-
         <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value="ความผิดปกติของต่อมไร้ท่อ">
-          <label for="vehicle1"> ความผิดปกติของต่อมไร้ท่อ</label>
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบทางเดินอาหาร">
+          <label for="vehicle1"> โรคระบบทางเดินอาหาร</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบประสาท">
+          <label for="vehicle1"> โรคระบบประสาท</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบทางเดินปัสสาวะ">
+          <label for="vehicle1"> โรคระบบทางเดินปัสสาวะ</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="ระบบทางเดินสืบพันธุ์">
+          <label for="vehicle1"> ระบบทางเดินสืบพันธุ์</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="ระบบผิวหนัง">
+          <label for="vehicle1"> ระบบผิวหนัง</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคเกี่ยวกับนัยน์ตา">
+          <label for="vehicle1"> โรคเกี่ยวกับนัยน์ตา</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="ความผิดปกติของต่อมไร้ท่อประเภทต่างๆ">
+          <label for="vehicle1"> ความผิดปกติของต่อมไร้ท่อประเภทต่างๆ</label>
         </div>
         <div class="checkbox">
           <input type="checkbox" name="commonissue" id="commonissue" value="ก้อนเนื้อผิดปกติ">
           <label for="vehicle1"> ก้อนเนื้อผิดปกติ</label>
-        </div><br>
+        </div>
+        <br>
 
         <div class="form-group">
           <label for="appearance">รูปร่างลักษณะ</label>
@@ -169,27 +228,30 @@
             <option value="รูปร่างใหญ่">รูปร่างใหญ่</option>
           </select>
         </div>
+
         <div class="form-group">
           <label for="averageAge">อายุเฉลี่ย</label>
           <select id="averageAge" name="averageAge" required>
             <option style="display:none">อายุเฉลี่ย</option>
-            <option value="14 ปี">14 ปี</option>
-            <option value="13 ปี">13 ปี</option>
-            <option value="12 ปี">12 ปี</option>
+            <option value="9 ปี">9 ปี</option>
             <option value="10 ปี">10 ปี</option>
-            <option value="8 ปี">8 ปี</option>
-
+            <option value="12 ปี">12 ปี</option>
+            <option value="13 ปี">13 ปี</option>
+            <option value="14 ปี">14 ปี</option>
+            <option value="15 ปี">15 ปี</option>
+            <option value="16 ปี">16 ปี</option>
           </select>
         </div>
+
         <div class="form-group">
           <label for="exercise">การออกกำลังกาย</label>
           <select id="exercise" name="exercise" required>
             <option style="display:none">การออกกำลังกาย</option>
             <option value="ต้องการ">ต้องการ</option>
             <option value="ไม่ต้องการ">ไม่ต้องการ</option>
-
           </select>
         </div>
+
         <div class="form-group">
           <label for="watchdog">การเฝ้าระวัง</label>
           <select id="watchdog" name="watchdog" required>
@@ -198,6 +260,7 @@
             <option value="ระดับต่ำ">ระดับต่ำ</option>
           </select>
         </div>
+
         <label for="topic">รูปภาพ</label>
 
         <div class="laout">
@@ -208,7 +271,6 @@
       </form>
     </div>
   </div>
-
 
 </body>
 

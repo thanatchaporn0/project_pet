@@ -1,5 +1,3 @@
-
-/* General reset */
 * {
     margin: 0;
     padding: 0;
@@ -193,7 +191,7 @@ nav a.active {
     object-fit: cover;
 }
 
-.layout{
+.layout {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -225,7 +223,7 @@ nav a.active {
     margin-bottom: 10px;
     padding-left: 20px;
     position: relative;
-    
+
 }
 
 .checklist li::before,

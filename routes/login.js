@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const UserModel = require('../model/user');
-
+const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {
     if (!req.session.loginsession) {
@@ -52,7 +52,7 @@ router.post('/forgotPassword', async (req, res) => {
         if (user) {
             user.password = password;
             await user.save();
-            res.redirect("/login"); 
+            res.redirect("/login");
         } else {
             res.status(404).send("ไม่พบผู้ใช้ที่มีอีเมลนี้");
         }
@@ -63,24 +63,32 @@ router.post('/forgotPassword', async (req, res) => {
 });
 
 
-
 router.post('/', async (req, res) => {
     const { email, password } = req.body;
+
     try {
-        const result = await UserModel.findOne({ email: email, password: password })
-        console.log(result)
-        if (result.role == 1) {
-            req.session.loginsession = result;
-            res.redirect("/adminhome")
-        } else {
-            req.session.loginsession = result;
-            res.redirect("/")
+       
+        const result = await UserModel.findOne({ email: email });
+        if (!result) {
+            return res.status(400).send('ผู้ใช้ไม่พบ');
         }
+        const isMatch = await bcrypt.compare(password, result.password);
+        if (!isMatch) {
+            return res.status(400).send('รหัสผ่านไม่ถูกต้อง');
+        }
+        req.session.loginsession = result;
+
+        if (result.role === 1) {
+            res.redirect("/adminhome");
+        } else {
+            res.redirect("/");
+        }
+
     } catch (error) {
-        console.log(error)
+        console.log(error);
+        res.status(500).send('เกิดข้อผิดพลาด');
     }
 });
-
 
 router.post('/editproflie/:id', async (req, res) => {    //: พารามิเตอร์ 
     const { email, name, sex, age } = req.body;     //ดึง

@@ -134,3 +134,12 @@ button:hover {
     grid-template-columns: auto auto auto;
     margin-bottom: 10px;
 }
+
+.button {
+    padding: 11px 25px;
+    border: none;
+    background-color: #ff7f50;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}

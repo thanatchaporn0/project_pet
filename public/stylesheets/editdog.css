@@ -1,23 +1,27 @@
-body{
-    font-family: "Sarabun", sans-serif;
-    font-weight: 100;
-    font-style: normal;
+body {
+  font-family: "Sarabun", sans-serif;
+  font-weight: 100;
+  font-style: normal;
 }
-.container{
+
+.container {
   display: grid;
   grid-template-columns: 22% auto;
-  
+
 }
-.sidebar{
+
+.sidebar {
   margin-left: 0;
   padding: 10px;
-  height:100vh ;
+  height: 100vh;
 }
-.content{
+
+.content {
   padding: 10px;
-  height:100vh ;
-  
+  height: 200vh;
+
 }
+
 .sidebar .user-info {
   text-align: center;
 
@@ -35,41 +39,49 @@ body{
   align-items: center;
   margin: 0 auto;
 }
+
 .sidebar .user-email {
   margin-top: 20px;
   font-size: 16px;
   color: #E67B19;
 }
-ul{
+
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-ul li a p{
+
+ul li a p {
   color: black;
 }
-ul .active a p{
+
+ul .active a p {
   color: white;
 }
-ul li a{
+
+ul li a {
   text-decoration: none;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding:0 10px 0 10px;
+  padding: 0 10px 0 10px;
 
 }
-ul .active a{
+
+ul .active a {
   background-color: #E67B19;
-  border-radius:20px ;
+  border-radius: 20px;
 
 }
-ul li a img{
+
+ul li a img {
   width: 30px;
   height: 30px;
   margin-right: 20px;
- 
+
 }
+
 .logout {
   border: 3px solid #E67B19;
   background-color: white;
@@ -78,17 +90,20 @@ ul li a img{
   padding: 10px 0;
   text-align: center;
   font-size: 16px;
+  margin-top: 10px;
   cursor: pointer;
   font-weight: bold;
   width: 100%;
-  
+
 }
-.layout_logout{
+
+.layout_logout {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 22%;
 }
+
 .logout:hover {
   background-color: #E67B19;
   color: white;
@@ -137,7 +152,9 @@ select {
 }
 
 /* Input Fields */
-input[type="text"], select, input[type="file"] {
+input[type="text"],
+select,
+input[type="file"] {
   width: 50%;
   padding: 10px;
   font-size: 14px;
@@ -166,7 +183,7 @@ input[type="file"] {
 }
 
 button.submit-btn {
-  margin-left:auto;
+  margin-left: auto;
   background-color: #01D00D;
   color: white;
   padding: 10px 20px;
@@ -174,12 +191,12 @@ button.submit-btn {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  
+
 }
 
 button.submit-btn:hover {
   background-color: #01D00D;
-  
+
 }
 
 .laout {
@@ -188,6 +205,6 @@ button.submit-btn:hover {
   display: flex;
 }
 
-.checkbox{
+.checkbox {
   display: flex;
 }

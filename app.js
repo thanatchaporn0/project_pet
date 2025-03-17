@@ -15,6 +15,8 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var dogdetailsRouter = require('./routes/dogdetails');
 var userdetailsRouter = require('./routes/userdetails');
+var dogDiseasesRouter = require('./routes/dogDiseases');
+
 
 var app = express();
 const sessionConfig = {
@@ -24,18 +26,14 @@ const sessionConfig = {
 };
 
 app.use(session(sessionConfig));
-
 app.use(function(req, res, next) {
   res.locals.sessions = req.session
   res.locals.cookies = req.cookies
   next();
 });
 app.use('/bscss', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -51,7 +49,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/dog', dogdetailsRouter);
 app.use('/userdetails', userdetailsRouter);
-
+app.use('/dogDiseases', dogDiseasesRouter);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

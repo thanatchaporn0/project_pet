@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dog Breed Recommendation System</title>
+  <title>Dog Breeds-editdog</title>
   <link rel="stylesheet" href="/stylesheets/editdog.css">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -52,13 +52,17 @@
         </li>
 
         <li>
+          <a href="/editPage">
+              <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+              <p>จัดการเนื้อหา</p>
+          </a>
+      </li>
+
+        <li>
           <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
         </li>
       </ul>
-
-
     </div>
-
 
     <div class="content">
       <h1>แก้ไขพันธุ์สุนัข</h1>
@@ -71,59 +75,73 @@
           <label for="behavior">นิสัย</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="เป็นมิตร" <%=breed.behavior.includes('เป็นมิตร')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="เป็นมิตร"
+            <%=breed.behavior.includes('เป็นมิตร')? 'checked' : '' %>>
           <label for="vehicle1"> เป็นมิตร</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="ใจดี"  <%=breed.behavior.includes('ใจดี')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="ใจดี"
+            <%=breed.behavior.includes('ใจดี')? 'checked' : '' %>>
           <label for="vehicle1"> ใจดี</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="กระตือรือร้น"  <%=breed.behavior.includes('กระตือรือร้น')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="กระตือรือร้น"
+            <%=breed.behavior.includes('กระตือรือร้น')? 'checked' : '' %>>
           <label for="vehicle1"> กระตือรือร้น</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="ร่าเริง"  <%=breed.behavior.includes('ร่าเริง')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="ร่าเริง"
+            <%=breed.behavior.includes('ร่าเริง')? 'checked' : '' %>>
           <label for="vehicle1"> ร่าเริง</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="กล้าหาญ"  <%=breed.behavior.includes('กล้าหาญ')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="กล้าหาญ"
+            <%=breed.behavior.includes('กล้าหาญ')? 'checked' : '' %>>
           <label for="vehicle1"> กล้าหาญ</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="มีความมั่นใจ"  <%=breed.behavior.includes('มีความมั่นใจ')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="มีความมั่นใจ"
+            <%=breed.behavior.includes('มีความมั่นใจ')? 'checked' : '' %>>
           <label for="vehicle1"> มีความมั่นใจ</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="ฉลาด"  <%=breed.behavior.includes('ฉลาด')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="ฉลาด"
+            <%=breed.behavior.includes('ฉลาด')? 'checked' : '' %>>
           <label for="vehicle1"> ฉลาด</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="จงรักเจ้าของ"  <%=breed.behavior.includes('จงรักเจ้าของ')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="จงรักเจ้าของ"
+            <%=breed.behavior.includes('จงรักเจ้าของ')? 'checked' : '' %>>
           <label for="vehicle1"> จงรักเจ้าของ</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="เชื่อฟังคำสั่ง"  <%=breed.behavior.includes('เชื่อฟังคำสั่ง')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="เชื่อฟังคำสั่ง"
+            <%=breed.behavior.includes('เชื่อฟังคำสั่ง')? 'checked' : '' %>>
           <label for="vehicle1"> เชื่อฟังคำสั่ง</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="เป็นนักสำรวจ "  <%=breed.behavior.includes('เป็นนักสำรวจ')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="เป็นนักสำรวจ "
+            <%=breed.behavior.includes('เป็นนักสำรวจ')? 'checked' : '' %>>
           <label for="vehicle1"> เป็นนักสำรวจ </label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="เป็นตัวของตัวเอง"  <%=breed.behavior.includes('เป็นตัวของตัวเอง')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="เป็นตัวของตัวเอง"
+            <%=breed.behavior.includes('เป็นตัวของตัวเอง')? 'checked' : '' %>>
           <label for="vehicle1"> เป็นตัวของตัวเอง</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="หวงอาณาเขต"  <%=breed.behavior.includes('หวงอาณาเขต')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="หวงอาณาเขต"
+            <%=breed.behavior.includes('หวงอาณาเขต')? 'checked' : '' %>>
           <label for="vehicle1"> หวงอาณาเขต</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="รักสงบ"  <%=breed.behavior.includes('รักสงบ')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="รักสงบ"
+            <%=breed.behavior.includes('รักสงบ')? 'checked' : '' %>>
           <label for="vehicle1"> รักสงบ</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="behavior" id="behavior" value="ก้าวร้าว"  <%=breed.behavior.includes('ก้าวร้าว')? 'checked' : '' %>>
+          <input type="checkbox" name="behavior" id="behavior" value="ก้าวร้าว"
+            <%=breed.behavior.includes('ก้าวร้าว')? 'checked' : '' %>>
           <label for="vehicle1"> ก้าวร้าว</label>
         </div><br>
 
@@ -131,48 +149,81 @@
           <label for="commonissue">โรคหรือความผิดปกติที่พบ</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบผิวหนัง" <%=breed.commonissue.includes('โรคระบบผิวหนัง')? 'checked' : '' %>>
-          <label for="vehicle1"> โรคระบบผิวหนัง</label>
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบทางเดินหายใจ"
+            <%=breed.commonissue.includes('โรคระบบทางเดินหายใจ')? 'checked' : '' %>>
+          <label for="vehicle1"> โรคระบบทางเดินหายใจ</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value=" โรคระบบกระดูก" <%=breed.commonissue.includes('โรคระบบกระดูก')? 'checked' : '' %>>
-          <label for="vehicle1"> โรคระบบกระดูก</label>
-        </div>
-        <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value=" โรคระบบประสาท" <%=breed.commonissue.includes('โรคระบบประสาท')? 'checked' : '' %>>
-          <label for="vehicle1"> โรคระบบประสาท</label>
-        </div>
-        <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value=" โรคระบบไหลเวียนโลหิต" <%=breed.commonissue.includes('โรคระบบไหลเวียนโลหิต')? 'checked' : '' %>>
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบไหลเวียนโลหิต"
+            <%=breed.commonissue.includes('โรคระบบไหลเวียนโลหิต')? 'checked' : '' %>>
           <label for="vehicle1"> โรคระบบไหลเวียนโลหิต</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value=" โรคเกี่ยวกับนัยตา" <%=breed.commonissue.includes('โรคเกี่ยวกับนัยตา')? 'checked' : '' %>>
-          <label for="vehicle1"> โรคเกี่ยวกับนัยตา</label>
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบกระดูก"
+            <%=breed.commonissue.includes('โรคระบบกระดูก')? 'checked' : '' %>>
+          <label for="vehicle1"> โรคระบบกระดูก</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value=" ความผิดปกติของต่อมไร้ท่อ" <%=breed.commonissue.includes('ความผิดปกติของต่อมไร้ท่อ')? 'checked' : '' %>>
-          <label for="vehicle1"> ความผิดปกติของต่อมไร้ท่อ</label>
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบทางเดินอาหาร"
+            <%=breed.commonissue.includes('โรคระบบทางเดินอาหาร')? 'checked' : '' %>>
+          <label for="vehicle1"> โรคระบบทางเดินอาหาร</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" name="commonissue" id="commonissue" value=" ก้อนเนื้อผิดปกติ" <%=breed.commonissue.includes('ก้อนเนื้อผิดปกติ')? 'checked' : '' %>>
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบประสาท"
+            <%=breed.commonissue.includes('โรคระบบประสาท')? 'checked' : '' %>>
+          <label for="vehicle1"> โรคระบบประสาท</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคระบบทางเดินปัสสาวะ"
+            <%=breed.commonissue.includes('โรคระบบทางเดินปัสสาวะ')? 'checked' : '' %>>
+          <label for="vehicle1"> โรคระบบทางเดินปัสสาวะ</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="ระบบทางเดินสืบพันธุ์"
+            <%=breed.commonissue.includes('ระบบทางเดินสืบพันธุ์')? 'checked' : '' %>>
+          <label for="vehicle1"> ระบบทางเดินสืบพันธุ์</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="ระบบผิวหนัง"
+            <%=breed.commonissue.includes('ระบบผิวหนัง')? 'checked' : '' %>>
+          <label for="vehicle1"> ระบบผิวหนัง</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="โรคเกี่ยวกับนัยน์ตา"
+            <%=breed.commonissue.includes('โรคเกี่ยวกับนัยน์ตา')? 'checked' : '' %>>
+          <label for="vehicle1"> โรคเกี่ยวกับนัยน์ตา</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="ความผิดปกติของต่อมไร้ท่อประเภทต่างๆ"
+            <%=breed.commonissue.includes('ความผิดปกติของต่อมไร้ท่อประเภทต่างๆ')? 'checked' : '' %>>
+          <label for="vehicle1"> ความผิดปกติของต่อมไร้ท่อประเภทต่างๆ</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="commonissue" id="commonissue" value="ก้อนเนื้อผิดปกติ"
+            <%=breed.commonissue.includes('ก้อนเนื้อผิดปกติ')? 'checked' : '' %>>
           <label for="vehicle1"> ก้อนเนื้อผิดปกติ</label>
-        </div><br>
+        </div>
+        <br>
 
         <div class="form-group">
           <label for="appearance">รูปร่างลักษณะ</label>
           <select id="appearance" name="appearance" required>
             <option value="รูปร่างเล็ก" <%=breed.appearance==='รูปร่างเล็ก' ? 'selected' : '' %>>รูปร่างเล็ก</option>
-            <option value="รูปร่างปานกลาง" <%=breed.appearance==='รูปร่างปานกลาง' ? 'selected' : '' %>>รูปร่างปานกลาง</option>
+            <option value="รูปร่างปานกลาง" <%=breed.appearance==='รูปร่างปานกลาง' ? 'selected' : '' %>>รูปร่างปานกลาง
+            </option>
             <option value="รูปร่างใหญ่" <%=breed.appearance==='รูปร่างใหญ่' ? 'selected' : '' %>>รูปร่างใหญ่</option>
           </select>
         </div>
         <div class="form-group">
           <label for="averageAge">อายุเฉลี่ย</label>
           <select id="averageAge" name="averageAge" required>
-            <option value="14 ปี" <%=breed.averageAge==='14 ปี' ? 'selected' : '' %>>14 ปี</option>
-            <option value="13 ปี" <%=breed.averageAge==='13 ปี' ? 'selected' : '' %>>13 ปี</option>
+            <option value="9 ปี" <%=breed.averageAge==='9 ปี' ? 'selected' : '' %>>9 ปี</option>
+            <option value="10 ปี" <%=breed.averageAge==='10 ปี' ? 'selected' : '' %>>10 ปี</option>
             <option value="12 ปี" <%=breed.averageAge==='12 ปี' ? 'selected' : '' %>>12 ปี</option>
+            <option value="13 ปี" <%=breed.averageAge==='13 ปี' ? 'selected' : '' %>>13 ปี</option>
+            <option value="14 ปี" <%=breed.averageAge==='14 ปี' ? 'selected' : '' %>>14 ปี</option>
+            <option value="15 ปี" <%=breed.averageAge==='15 ปี' ? 'selected' : '' %>>15 ปี</option>
+            <option value="16 ปี" <%=breed.averageAge==='16 ปี' ? 'selected' : '' %>>16 ปี</option>
           </select>
         </div>
         <div class="form-group">
@@ -198,9 +249,6 @@
       </form>
     </div>
   </div>
-  
-
-
 </body>
 
 </html>

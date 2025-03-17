@@ -23,7 +23,7 @@ header {
   width: 75px;
   height: 70px;
   margin-right: 15px;
-  margin-left: 10px ;
+  margin-left: 10px;
 }
 
 .logo span {
@@ -32,7 +32,7 @@ header {
 }
 
 .buttons button {
-  margin-left: 10px ;
+  margin-left: 10px;
   margin-right: 20px;
   padding: 15px 50px;
   border: none;
@@ -84,7 +84,7 @@ p {
 }
 
 .dog-images img {
-  width: 600px; 
-  height: 200px; 
+  width: 600px;
+  height: 200px;
   margin: 0 10px;
 }

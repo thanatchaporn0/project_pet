@@ -1,21 +1,10 @@
 const mongoose = require('mongoose');
 
 const HistorySchema = new mongoose.Schema({
-        "housing":String,
-        "lifestyle":String,
-        "freetime":String,
-        "Ischildren":String,
-        "IsOtheranimal":String,
-        "space":String,
-        "preferredbehavior":[{type:String}],
-        "noiseproblem":String,
-        "clean":String,
-        "breed":String,
-        user_id: {
-                type: mongoose.Types.ObjectId, ref: "User",
-                required: true
-        },
-        result:String
+        predicted_breed: { type: String },
+        createdAt: { type: Date, default: Date.now },
+        user:{type: mongoose.Types.ObjectId, ref: "User",
+                required: true}
 });
 
 module.exports = mongoose.model('FormHistory', HistorySchema);

@@ -4,22 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dog Breed Recommendation System</title>
+  <title>Dog Breeds-userdetails</title>
   <link rel="stylesheet" href="/stylesheets/userdetails.css">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
 
-    <script>
-      function confirmDelete() {
+  <script>
+    function confirmDelete() {
       return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้?'); // แสดงกล่องข้อความยืนยัน
-  }
-   </script>
-
-  </head>
+    }
+  </script>
+</head>
 
 <body>
   <div class="container">
@@ -41,7 +41,6 @@
           </a>
         </li>
 
-
         <li>
           <a href="/dog">
             <img src="/images/จัดการพันธุ์สุนัข.png" alt="จัดการพันธุ์สุนัข">
@@ -56,15 +55,20 @@
           </a>
         </li>
         <li>
-          
+          <a href="/editPage">
+              <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+              <p>จัดการเนื้อหา</p>
+          </a>
+      </li>
+        <li>
+
         </li>
         <li>
           <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
         </li>
       </ul>
-
     </div>
-    
+
     <div class="content">
       <div class="header">
         <h2>จัดการบัญชีผู้ใช้</h2>
@@ -77,7 +81,7 @@
             <th>อีเมล</th>
             <th>ชื่อ</th>
             <th>เพศ</th>
-            <th>อายุ</th>
+            <th>วันเกิด</th>
             <th>ลบ</th>
           </tr>
         </thead>
@@ -88,41 +92,39 @@
               <td>
                 <%= index + 1 %>
               </td>
-              <td >
-                <p><%= user.email %></p>
-               
-              </td>
-              <td >
-                <p><%= user.name %></p>
-               
-              </td>
-              <td >
-                <p><%= user.sex %></p>
-               
-              </td>
-              <td >
-                <p><%= user.age %></p>
-               
-              </td>
-            
-              <td><a href="/userdetails/delete/<%= user._id %>" onclick="return confirmDelete();">
-                <button class="delete-btn">ลบ</button>
-            </a></td>
-            </tr>
+              <td>
+                <p>
+                  <%= user.email %>
+                </p>
 
+              </td>
+              <td>
+                <p>
+                  <%= user.name %>
+                </p>
+              </td>
+              <td>
+                <p>
+                  <%= user.sex %>
+                </p>
+              </td>
+              <td>
+                <p>
+                  <%= user.age %>
+                </p>
+              </td>
+
+              <td><a href="/userdetails/delete/<%= user._id %>" onclick="return confirmDelete();">
+                  <button class="delete-btn">ลบ</button>
+                </a></td>
+            </tr>
             <% }) %>
               <tr>
-
               </tr>
-
         </tbody>
       </table>
-    
-
     </div>
   </div>
-
-
   </div>
 </body>
 

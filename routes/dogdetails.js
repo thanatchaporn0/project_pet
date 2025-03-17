@@ -67,7 +67,7 @@ router.get('/delete/:id', upload.single("image"), async (req, res) => {
 
 router.post('/editbreed/:id', upload.single('image'), async (req, res) => {
     const breedId = req.params.id;
-    const { breed, behavior, commonissue, appearance, averageAge } = req.body;
+    const { breed, behavior, commonissue, appearance, averageAge, exercise, watchdog} = req.body;
 
     try {
         const updatedBreed = await DogModel.findByIdAndUpdate(
@@ -78,6 +78,8 @@ router.post('/editbreed/:id', upload.single('image'), async (req, res) => {
                 commonissue,
                 appearance,
                 averageAge,
+                exercise,
+                watchdog,
                 image: req.file ? req.file.filename : undefined,
             },
             { new: true }
@@ -86,31 +88,6 @@ router.post('/editbreed/:id', upload.single('image'), async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).send('เกิดข้อผิดพลาด');
-    }
-});
-
-router.get('/search', async (req, res) => {
-    try {
-        const query = req.query.query?.trim();
-
-        // ตรวจสอบว่ามีคำค้นหรือไม่
-        if (!query) {
-            return res.status(400).json({ message: 'กรุณาระบุคำค้น' });
-        }
-
-        // ค้นหาข้อมูลในฐานข้อมูล (ใช้ regex เพื่อค้นหาแบบยืดหยุ่น)
-        const keywords = query.split(' '); // แยกคำค้นเป็นคำย่อย
-        const regexArray = keywords.map((word) => ({ breed: { $regex: word, $options: 'i' } }));
-
-        // ค้นหาชื่อพันธุ์ที่ตรงกับคำค้น
-        const dogs = await DogModel.find({
-            $and: regexArray,
-        });
-
-        res.status(200).json(dogs); // ส่งข้อมูลกลับ
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'เกิดข้อผิดพลาดในการค้นหา' });
     }
 });
 

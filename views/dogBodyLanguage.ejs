@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breeds-adminhome</title>
+    <link rel="stylesheet" href="/stylesheets/adminhome.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            function confirmDelete(event, url) {
+                event.preventDefault();
+    
+                Swal.fire({
+                    title: "ยืนยันการลบ?",
+                    text: "คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "ใช่, ลบเลย!",
+                    cancelButtonText: "ยกเลิก"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = url;
+                    }
+                });
+    
+                return false;
+            }
+    
+        </script>
+    <style>
+        .content {
+ 
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', sans-serif;
+        }
+
+        form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background: #E67B19;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #E67B19;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .breed-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .breed-table th,
+        .breed-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .breed-table th {
+            background: #E67B19;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .breed-table tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .breed-table tbody tr:hover {
+            background: #ffe5e5;
+        }
+
+        .delete-btn {
+            background: red;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background: #E67B19;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <%=sessions.loginsession.name.charAt(0).toUpperCase()%>
+                </div>
+                <div class="user-email">
+                    <%=sessions.loginsession.name%>
+                </div>
+            </div>
+
+            <ul class="menu">
+                <li>
+                    <a href="/adminhome">
+                        <img src="/images/ภาพรวมสีดำ.png" alt="ภาพรวม">
+                        <p>ภาพรวม</p>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/dog">
+                        <img src="/images/จัดการพันธุ์สุนัข.png" alt="จัดการพันธุ์สุนัข">
+                        <p>จัดการพันธุ์สุนัข</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/userdetails">
+                        <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+                        <p>จัดการบัญชีผู้ใช้</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/editPage">
+                        <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+                        <p>จัดการเนื้อหา</p>
+                    </a>
+                </li>
+                <li>
+
+
+                </li>
+                <li>
+                    <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <form action="/dogDiseases/addDBL" method="POST">
+                <label for="">อาการ</label><br>
+                <input type="text" name="posture" id="posture"><br><br>
+                <label for="">ความหมาย</label><br>
+                <textarea id="implication" name="implication" rows="4" cols="50"></textarea><br>
+                <button type="submit">บันทึก</button>
+            </form>
+            <h2>ข้อมูลพฤติกรรม</h2>
+            <table class="breed-table">
+                <thead>
+                    <tr>
+                        <th>อาการ</th>
+                        <th>ความหมาย</th>
+                        <th>ลบ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (DBL.length> 0) { %>
+                        <% DBL.forEach((DBLs, index)=> { %>
+
+                            <tr>
+                                <td>
+                                    <%= DBLs.posture %>
+                                </td>
+                                <td class="imagedog">
+                                    <%= DBLs.implication %>
+                                </td>
+
+
+                                <td><a href="/dogDiseases/deleteDBL/<%= DBLs._id %>"  onclick="return confirmDelete(event, this.href);">
+                                        <button class="delete-btn">ลบ</button>
+                                    </a></td>
+                            </tr>
+
+                            <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="3" style="text-align: center; color: gray; padding: 10px;">
+                                            ไม่มีข้อมูล
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

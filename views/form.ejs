@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Breed Recommendation System</title>
+    <title>Dog Breeds-form</title>
     <link rel="stylesheet" href="/stylesheets/form.css">
     <link rel="stylesheet" href="/stylesheets/index.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
@@ -42,7 +42,6 @@
         }
 
     </script>
-
 </head>
 
 <body>
@@ -51,12 +50,12 @@
             <form id="recommendation-form" action="/form/sendform" method="POST">
 
                 <div class="form-container" id="question1">
-                    <h2>คำถามข้อ 1 จากทั้งหมด 10 ข้อ</h2>
+                    <h2>คำถามข้อ 1 จากทั้งหมด 7 ข้อ</h2>
                     <h3>1. สถานที่อยู่อาศัยหลักของคุณ ?</h3>
 
                     <div class="options">
                         <label>
-                            <input type="radio" name="housing" value="0">
+                            <input type="radio" name="housing" value="บ้านเดี่ยว/บ้านสวน">
                             <div class="option">
                                 <img src="/images/home.png" alt="บ้านเดี่ยว/บ้านสวน">
                                 <span>บ้านเดี่ยว/บ้านสวน</span>
@@ -81,13 +80,13 @@
 
                     </div>
 
-                    <button type="submit">ออก</button>
+                    <a href="/" class="button">ออก</a>
                     <button type="button" onclick="validateAndNext('question1', 'question2')">ยืนยัน</button>
 
                 </div>
                 <div class="form-container" id="question2">
-                    <h2>คำถามข้อ 2 จากทั้งหมด 10 ข้อ</h2>
-                    <h3>2. ลักษณะการใช้ชีวิตของคุณ ?</h3>
+                    <h2>คำถามข้อ 2 จากทั้งหมด 7 ข้อ</h2>
+                    <h3>2. ลักษณะการดำเนินชีวิตประจำวันของคุณ ?</h3>
                     <div class="options">
 
                         <label>
@@ -113,7 +112,7 @@
 
                 </div>
                 <div class="form-container" id="question3">
-                    <h2>คำถามข้อ 3 จากทั้งหมด 10 ข้อ</h2>
+                    <h2>คำถามข้อ 3 จากทั้งหมด 7 ข้อ</h2>
                     <h3>3. คุณมีเวลาว่างทำกิจกรรมร่วมกับสุนัข ?</h3>
 
                     <div class="options">
@@ -122,7 +121,7 @@
                             <input type="radio" name="freetime" value="1">
                             <div class="option">
                                 <img src="/images/dog3.png" alt="มากกว่า 3 ชั่วโมงต่อวัน">
-                                <span>มากกว่า 3 ชั่วโมงต่อวัน</span>
+                                <span>มากกว่า 2 ชั่วโมงต่อวัน</span>
                             </div>
                         </label>
 
@@ -130,7 +129,7 @@
                             <input type="radio" name="freetime" value="0">
                             <div class="option">
                                 <img src="/images/dog3.png" alt="น้อยกว่า 3 ชั่วโมงต่อวัน">
-                                <span>น้อยกว่า 3 ชั่วโมงต่อวัน</span>
+                                <span>น้อยกว่า 2 ชั่วโมงต่อวัน</span>
                             </div>
                         </label>
                     </div>
@@ -141,8 +140,8 @@
 
                 </div>
                 <div class="form-container" id="question4">
-                    <h2>คำถามข้อ 4 จากทั้งหมด 10 ข้อ</h2>
-                    <h3>4. สุนัขอาศัยอยู่ร่วมกับเด็กเป็นหลัก ?</h3>
+                    <h2>คำถามข้อ 4 จากทั้งหมด 7 ข้อ</h2>
+                    <h3>4. สุนัขต้องอาศัยอยู่ร่วมกับเด็กเป็นหลัก ?</h3>
 
                     <div class="options">
                         <label>
@@ -168,8 +167,8 @@
 
                 </div>
                 <div class="form-container" id="question5">
-                    <h2>คำถามข้อ 5 จากทั้งหมด 10 ข้อ</h2>
-                    <h3>5. สุนัขอาศัยอยู่ร่วมกับสัตว์เลี้ยงตัวอื่นเป็นหลัก ?</h3>
+                    <h2>คำถามข้อ 5 จากทั้งหมด 7 ข้อ</h2>
+                    <h3>5. สุนัขต้องอาศัยอยู่ร่วมกับสัตว์เลี้ยงตัวอื่นเป็นหลัก ?</h3>
 
                     <div class="options">
 
@@ -196,7 +195,7 @@
 
                 </div>
                 <div class="form-container" id="question6">
-                    <h2>คำถามข้อ 6 จากทั้งหมด 10 ข้อ</h2>
+                    <h2>คำถามข้อ 6 จากทั้งหมด 7 ข้อ</h2>
                     <h3>6. คุณมีพื้นที่ให้สุนัขวิ่งเล่นมากเพียงใด ?</h3>
 
                     <div class="options">
@@ -225,12 +224,13 @@
                 </div>
 
                 <div class="form-container" id="question7">
-                    <h2>คำถามข้อ 7 จากทั้งหมด 10 ข้อ</h2>
-                    <h3>7. นิสัยของสุนัขที่คุณชอบ ?</h3>
+                    <h2>คำถามข้อ 7 จากทั้งหมด 7 ข้อ</h2>
+                    <h3>7. นิสัยสุนัขที่คุณชอบ ?</h3>
 
                     <div class="options2">
                         <label>
-                            <input type="checkbox" name="preferredbehavior" value="1">
+                            <input type="checkbox" name="preferredbehavior1" value="1"
+                                onchange="handleCheckboxChange(this)">
                             <div class="option">
                                 <img src="/images/dog2.png" alt="เป็นมิตร">
                                 <span>เป็นมิตร</span>
@@ -238,7 +238,26 @@
                         </label>
 
                         <label>
-                            <input type="checkbox" name="preferredbehavior" value="2">
+                            <input type="checkbox" name="preferredbehavior2" value="1"
+                                onchange="handleCheckboxChange(this)">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="ใจดี">
+                                <span>ใจดี</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="preferredbehavior3" value="1"
+                                onchange="handleCheckboxChange(this)">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="กระตือรือร้น">
+                                <span>กระตือรือร้น</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="preferredbehavior4" value="1"
+                                onchange="handleCheckboxChange(this)">
                             <div class="option">
                                 <img src="/images/dog2.png" alt="ร่าเริง">
                                 <span>ร่าเริง</span>
@@ -246,7 +265,26 @@
                         </label>
 
                         <label>
-                            <input type="checkbox" name="preferredbehavior" value="3">
+                            <input type="checkbox" name="preferredbehavior5" value="1"
+                                onchange="handleCheckboxChange(this)">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="กล้าหาญ">
+                                <span>กล้าหาญ</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="preferredbehavior6" value="1"
+                                onchange="handleCheckboxChange(this)">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="มีความมั่นใจ">
+                                <span>มีความมั่นใจ</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="preferredbehavior7" value="1"
+                                onchange="handleCheckboxChange(this)">
                             <div class="option">
                                 <img src="/images/dog2.png" alt="ฉลาด">
                                 <span>ฉลาด</span>
@@ -254,7 +292,8 @@
                         </label>
 
                         <label>
-                            <input type="checkbox" name="preferredbehavior" value="4">
+                            <input type="checkbox" name="preferredbehavior8" value="1"
+                                onchange="handleCheckboxChange(this)">
                             <div class="option">
                                 <img src="/images/dog2.png" alt="จงรักเจ้าของ">
                                 <span>จงรักเจ้าของ</span>
@@ -262,23 +301,53 @@
                         </label>
 
                         <label>
-                            <input type="checkbox" name="preferredbehavior" value="5">
+                            <input type="checkbox" name="preferredbehavior9" value="1"
+                                onchange="handleCheckboxChange(this)">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="เชื่อฟังคำสั่ง">
+                                <span>เชื่อฟังคำสั่ง</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="preferredbehavior10" value="1"
+                                onchange="handleCheckboxChange(this)">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="เป็นนักสำรวจ ">
+                                <span>เป็นนักสำรวจ </span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="preferredbehavior11" value="1"
+                                onchange="handleCheckboxChange(this)">
                             <div class="option">
                                 <img src="/images/dog2.png" alt="เป็นตัวของตัวเอง">
                                 <span>เป็นตัวของตัวเอง</span>
                             </div>
                         </label>
 
-                        <label>
-                            <input type="checkbox" name="preferredbehavior" value="6">
+                         <label>
+                            <input type="checkbox" name="preferredbehavior12" value="1"
+                                onchange="handleCheckboxChange(this)">
                             <div class="option">
-                                <img src="/images/dog2.png" alt="เป็นนักสำรวจ">
-                                <span>เป็นนักสำรวจ</span>
+                                <img src="/images/dog2.png" alt="หวงอาณาเขต">
+                                <span>หวงอาณาเขต</span>
+                            </div>
+                        </label> 
+
+                         <label>
+                            <input type="checkbox" name="preferredbehavior13" value="1"
+                                onchange="handleCheckboxChange(this)">
+                            <div class="option">
+                                <img src="/images/dog2.png" alt="รักสงบ">
+                                <span>รักสงบ</span>
                             </div>
                         </label>
 
                         <label>
-                            <input type="checkbox" name="preferredbehavior" value="7">
+                            <input type="checkbox" name="preferredbehavior14" value="1"
+                                onchange="handleCheckboxChange(this)">
                             <div class="option">
                                 <img src="/images/dog2.png" alt="ก้าวร้าว">
                                 <span>ก้าวร้าว</span>
@@ -286,103 +355,14 @@
                         </label>
                     </div>
 
-                    <button type="button"
-                        onclick="showQuestion('question6'); hideQuestion('question7')">ย้อนกลับ</button>
-                    <button type="button" onclick="validatecheckbox('question7', 'question8')">ยืนยัน</button>
-
-                </div>
-
-                <div class="form-container" id="question8">
-                    <h2>คำถามข้อ 8 จากทั้งหมด 10 ข้อ</h2>
-                    <h3>8. เมื่อสุนัขเห่าเป็นปัญหาสำหรับคุณระดับใด ?</h3>
-
-                    <div class="options">
-                        <label>
-                            <input type="radio" name="noiseproblem" value="0">
-                            <div class="option">
-                                <img src="/images/no.png" alt="ไม่เป็นปัญหา">
-                                <span>ไม่เป็นปัญหา</span>
-                            </div>
-                        </label>
-
-                        <label>
-                            <input type="radio" name="noiseproblem" value="1">
-                            <div class="option">
-                                <img src="/images/dog4.png" alt="เป็นปัญหาบางครั้ง">
-                                <span>เป็นปัญหาบางครั้ง</span>
-                            </div>
-                        </label>
-
-                        <label>
-                            <input type="radio" name="noiseproblem" value="2">
-                            <div class="option">
-                                <img src="/images/dog4.png" alt="เป็นปัญหามาก">
-                                <span>เป็นปัญหามาก</span>
-                            </div>
-                        </label>
-
-                    </div>
-
-                    <button type="button"
-                        onclick="showQuestion('question7'); hideQuestion('question8')">ย้อนกลับ</button>
-                    <button type="button" onclick="validateAndNext('question8', 'question9')">ยืนยัน</button>
-
-                </div>
-                <div class="form-container" id="question9">
-                    <h2>คำถามข้อ 9 จากทั้งหมด 10 ข้อ</h2>
-                    <h3>9. คุณสามารถดูแลแปรงขนสุนัข ?</h3>
-
-                    <div class="options">
-                        <label>
-                            <input type="radio" name="clean" value="1">
-                            <div class="option">
-                                <img src="/images/grooming.png" alt="ทุกวัน">
-                                <span>ทุกวัน</span>
-                            </div>
-                        </label>
-
-                        <label>
-                            <input type="radio" name="clean" value="1">
-                            <div class="option">
-                                <img src="/images/grooming.png" alt="บางครั้ง">
-                                <span>บางครั้ง</span>
-                            </div>
-                        </label>
-
-                    </div>
-
-                    <button type="button"
-                        onclick="showQuestion('question8'); hideQuestion('question9')">ย้อนกลับ</button>
-                    <button type="button" onclick="validateAndNext('question9', 'question10')">ยืนยัน</button>
-                </div>
-                <div class="form-container" id="question10">
-                    <h2>คำถามข้อ 10 จากทั้งหมด 10 ข้อ</h2>
-                    <h3>10. คุณต้องการเลี้ยงสุนัขขนาดใด ?</h3>
-
-                    <div class="options">
-
-                        <label>
-                            <input type="radio" name="breed" value="0">
-                            <div class="option">
-                                <img src="/images/work.png" alt="สุนัขพันธุ์เล็ก">
-                                <span>สุนัขพันธุ์เล็ก</span>
-                            </div>
-                        </label>
-
-                        <label>
-                            <input type="radio" name="breed" value="1">
-                            <div class="option">
-                                <img src="/images/work.png" alt="สุนัขพันธุ์ใหญ่">
-                                <span>สุนัขพันธุ์ใหญ่</span>
-                            </div>
-                        </label>
-                    </div>
 
                     <button type="button"
                         onclick="showQuestion('question9'); hideQuestion('question10')">ย้อนกลับ</button>
-                    <button type="submit">ยืนยัน</button>
+                    <button type="submit" onclick="submitForm()">ยืนยัน</button>
 
                 </div>
+
+
             </form>
         </main>
 
@@ -400,9 +380,6 @@
             document.getElementById("question5").style.display = "none";
             document.getElementById("question6").style.display = "none";
             document.getElementById("question7").style.display = "none";
-            document.getElementById("question8").style.display = "none";
-            document.getElementById("question9").style.display = "none";
-            document.getElementById("question10").style.display = "none";
             function showQuestion(id) {
                 document.getElementById(id).style.display = "block";
             }

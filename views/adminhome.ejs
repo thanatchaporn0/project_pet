@@ -4,14 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dog Breed Recommendation System</title>
+  <title>Dog Breeds-adminhome</title>
   <link rel="stylesheet" href="/stylesheets/adminhome.css">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -35,7 +37,7 @@
         </li>
 
 
-        <li   >
+        <li>
           <a href="/dog">
             <img src="/images/จัดการพันธุ์สุนัข.png" alt="จัดการพันธุ์สุนัข">
             <p>จัดการพันธุ์สุนัข</p>
@@ -49,22 +51,26 @@
           </a>
         </li>
         <li>
-          
-            
+          <a href="/editPage">
+              <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+              <p>จัดการเนื้อหา</p>
+          </a>
+      </li>
+        <li>
+
+
         </li>
         <li>
           <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
         </li>
       </ul>
-
-
     </div>
 
     <div class="content">
       <div class="header">
         ภาพรวม
-  
       </div>
+
       <div class="card">
         <img src="/images/แสดงผู้ใช้งาน.png" alt="User Icon">
         <div class="card-title">ผู้ใช้</div>
@@ -72,6 +78,7 @@
           <%= countUser %>
         </div>
       </div>
+
       <div class="card">
         <img src="/images/แสดงแอดมิน.png" alt="Admin Icon">
         <div class="card-title">แอดมิน</div>
@@ -79,6 +86,7 @@
           <%= countAdmin %>
         </div>
       </div>
+
       <div class="card">
         <img src="/images/ผู้ใช้งานทั้งหมด.png" alt="All Users Icon">
         <div class="card-title">ผู้ใช้งานทั้งหมด</div>
@@ -86,8 +94,6 @@
           <%= countUser + countAdmin %>
         </div>
       </div>
-
-
     </div>
   </div>
 

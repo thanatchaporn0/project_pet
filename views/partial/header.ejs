@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Breed Recommendation System</title>
+    <title>Dog Breeds</title>
     <style>
         .menu {
             list-style-type: none;
@@ -28,8 +28,9 @@
             color: #f57c00;
             text-decoration: none;
         }
+
         .nav li a.active {
-            color: orangered;
+            color: #776048;
             font-weight: bold;
             text-decoration: none;
         }
@@ -42,7 +43,7 @@
         <header>
             <div class="logo">
                 <img src="/images/logo.png" alt="Dog Breed Recommendation System">
-                <span>Dog Breed Recommendation System</span>
+                <span>Dog Breeds</span>
             </div>
             <ul class="nav">
                 <li>
@@ -52,22 +53,23 @@
                     <a href="/dogdetails">สายพันธุ์สุนัข</a>
                 </li>
                 <li>
-                    <a href="/content">เนื้อหาเกี่ยวกับสุนัข</a>
+                    <a href="/contentdog">เนื้อหาเกี่ยวกับสุนัข</a>
                 </li>
                 <li>
-                    <a href="">ประวัติแนะนำพันธุ์สุนัข</a>
+                    <a href="/breed/history/<%=sessions.loginsession._id%>">ประวัติแนะนำพันธุ์สุนัข</a>
                 </li>
             </ul>
+
             <ul class="menu">
                 <li class="">
                     <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <%=sessions.loginsession.name %>
                     </a>
+
                     <ul class="dropdown-menu">
-                        <!-- <li><a class="dropdown-item" href="/viewProfile">Profile</a></li> -->
                         <li><a class="dropdown-item"
-                                href="/login/editproflie/<%=sessions.loginsession._id%>">จัดการบัญชี</a></li>
+                                href="/login/editproflie/<%=sessions.loginsession._id%>">แก้ไขบัญชี</a></li>
                         <li><a class="dropdown-item" href="/login/logout">ออกจากระบบ</a></li>
                     </ul>
                 </li>
@@ -77,8 +79,8 @@
         <%}else{%>
             <header>
                 <div class="logo">
-                    <img src="/images/logo.png" alt="Recommendation Breed Dog">
-                    <span>Recommendation Breed Dog</span>
+                    <img src="/images/logo.png" alt="Dog Breed Recommendation System">
+                    <span>Dog Breeds</span>
                 </div>
                 <div class="buttons">
                     <a href="/login"><button>เข้าสู่ระบบ</button></a>
@@ -101,6 +103,5 @@
         });
     });
 </script>
-
 
 </html>

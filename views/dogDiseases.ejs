@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breeds-adminhome</title>
+    <link rel="stylesheet" href="/stylesheets/adminhome.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmDelete(event, url) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: "ยืนยันการลบ?",
+                text: "คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "ใช่, ลบเลย!",
+                cancelButtonText: "ยกเลิก"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            });
+
+            return false;
+        }
+
+    </script>
+    <style>
+        .content {
+            max-width: 900px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', sans-serif;
+        }
+
+        form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background: #E67B19;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #E67B19;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .breed-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .breed-table th,
+        .breed-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .breed-table th {
+            background: #E67B19;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .breed-table tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .breed-table tbody tr:hover {
+            background: #ffe5e5;
+        }
+
+        .delete-btn {
+            background: red;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background: #E67B19;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <%=sessions.loginsession.name.charAt(0).toUpperCase()%>
+                </div>
+                <div class="user-email">
+                    <%=sessions.loginsession.name%>
+                </div>
+            </div>
+
+            <ul class="menu">
+                <li>
+                    <a href="/adminhome">
+                        <img src="/images/ภาพรวมสีดำ.png" alt="ภาพรวม">
+                        <p>ภาพรวม</p>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/dog">
+                        <img src="/images/จัดการพันธุ์สุนัข.png" alt="จัดการพันธุ์สุนัข">
+                        <p>จัดการพันธุ์สุนัข</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/userdetails">
+                        <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+                        <p>จัดการบัญชีผู้ใช้</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/editPage">
+                        <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+                        <p>จัดการเนื้อหา</p>
+                    </a>
+                </li>
+                <li>
+
+
+                </li>
+                <li>
+                    <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <form action="/dogDiseases/adddogDiseases" method="POST">
+                <label for="">ประเภทโรค</label><br>
+                <select name="diseasesType" id="diseasesType">
+                    <option value="โรคระบบทางเดินหายใจ">โรคระบบทางเดินหายใจ</option>
+                    <option value="โรคระบบไหลเวียนโลหิต">โรคระบบไหลเวียนโลหิต</option>
+                    <option value="โรคระบบกระดูก">โรคระบบกระดูก</option>
+                    <option value="โรคระบบทางเดินอาหาร">โรคระบบทางเดินอาหาร</option>
+                    <option value="โรคระบบประสาท">โรคระบบประสาท</option>
+                    <option value="โรคระบบทางเดินปัสสาวะ">โรคระบบทางเดินปัสสาวะ</option>
+                    <option value="ระบบผิวหนัง">ระบบผิวหนัง</option>
+                    <option value="ระบบทางเดินสืบพันธุ์">ระบบทางเดินสืบพันธุ์</option>
+                </select><br><br>
+                <label for="">ชื่อโรค</label><br>
+                <input type="text" name="name" id="name"><br><br>
+                <label for="">ข้อมูลเกียวกับโรค</label><br>
+                <textarea id="description" name="description" rows="4" cols="50"></textarea><br>
+                <button type="submit">บันทึก</button>
+            </form>
+            <h2>ข้อมูลโรค</h2>
+            <table class="breed-table">
+                <thead>
+                    <tr>
+                        <th>ประเภทโรค</th>
+                        <th>ชื่อโรค</th>
+                        <th>ข้อมูลเกียวกับโรค</th>
+                        <th>ลบ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% DogDiseases.forEach((Diseases, index)=> { %>
+
+                        <tr>
+                            <td>
+                                <%= Diseases.diseasesType %>
+                            </td>
+                            <td class="imagedog">
+                                <%= Diseases.name %>
+                            </td>
+
+                            <td>
+                                <%= Diseases.description %>
+                            </td>
+
+                            <td><a href="/dogDiseases/delete/<%= Diseases._id %>"
+                                    onclick="return confirmDelete(event, this.href);">
+                                    <button class="delete-btn">ลบ</button>
+                                </a></td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

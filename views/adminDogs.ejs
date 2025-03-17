@@ -4,159 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Breed Recommendation System</title>
+    <title>Dog Breeds-adminDog</title>
     <link rel="stylesheet" href="/stylesheets/admindog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <!-- <script>
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const editButtons = document.querySelectorAll(".edit-btn");
-            const deleteButtons = document.querySelectorAll(".delete-btn");
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmDelete(event, url) {
+            event.preventDefault();
 
-            editButtons.forEach(button => {
-                button.addEventListener("click", (event) => {
-                    const breedId = event.target.dataset.id;
-                    // Logic for editing breed
-                    alert(`Edit breed with ID: ${breedId}`);
-                    // Redirect or open form for editing
-                });
+            Swal.fire({
+                title: "ยืนยันการลบ?",
+                text: "คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "ใช่, ลบเลย!",
+                cancelButtonText: "ยกเลิก"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
             });
 
-            deleteButtons.forEach(button => {
-                button.addEventListener("click", (event) => {
-                    const breedId = event.target.dataset.id;
-                    if (confirm("Are you sure you want to delete this breed?")) {
-                        // Logic for deleting breed
-                        alert(`Delete breed with ID: ${breedId}`);
-                        // Send delete request or remove breed from table
-                    }
-                });
-            });
+            return false;
+        }
 
-            // Add button functionality
-            document.getElementById("addBreed").addEventListener("click", () => {
-                alert("Redirecting to add breed page...");
-                // Logic to redirect or open form for adding a breed
-            });
-        });
-
-    </script> -->
-    <!-- FontAwesome for icons -->
-     <script>
-        function confirmDelete() {
-        return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้?'); // แสดงกล่องข้อความยืนยัน
-    }
-     </script>
+    </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
+    
 
-    <div class="container">
-
-        <div class="sidebar">
-            <div class="user-info">
-                <div class="user-avatar">
-                    <%=sessions.loginsession.name.charAt(0).toUpperCase()%>
+        <div class="container">
+            <div class="sidebar">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <%=sessions.loginsession.name.charAt(0).toUpperCase()%>
+                    </div>
+                    <div class="user-email">
+                        <%=sessions.loginsession.name%>
+                    </div>
                 </div>
-                <div class="user-email">
-                    <%=sessions.loginsession.name%>
+
+                <ul class="menu">
+                    <li>
+                        <a href="/adminhome">
+                            <img src="/images/ภาพรวมสีดำ.png" alt="ภาพรวม">
+                            <p>ภาพรวม</p>
+                        </a>
+                    </li>
+
+
+                    <li class="active">
+                        <a href="/dog">
+                            <img src="/images/จัดการพันธุ์สุนัขสีขาว.png" alt="จัดการพันธุ์สุนัข">
+                            <p>จัดการพันธุ์สุนัข</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/userdetails">
+                            <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+                            <p>จัดการบัญชีผู้ใช้</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/editPage">
+                            <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
+                            <p>จัดการเนื้อหา</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <div class="header">
+                    จัดการพันธุ์สุนัข
                 </div>
-            </div>
+                <div class="actions">
+                    <a href="/dog/addbreed" rel="noopener noreferrer">
+                        <button class="add-btn">+ เพิ่มพันธุ์สุนัข</button>
 
-            <ul class="menu">
-                <li >
-                    <a href="/adminhome">
-                        <img src="/images/ภาพรวมสีดำ.png" alt="ภาพรวม">
-                        <p>ภาพรวม</p>
                     </a>
-                </li>
+                    <form action="/searchadmin" method="get">
+                        <input type="text" name="query" placeholder="ค้นหาพันธุ์สุนัข" required>
+                        <button type="submit">ค้นหา</button>
+                    </form>
+                </div>
 
-
-                <li class="active">
-                    <a href="/dog">
-                        <img src="/images/จัดการพันธุ์สุนัขสีขาว.png" alt="จัดการพันธุ์สุนัข">
-                        <p>จัดการพันธุ์สุนัข</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/userdetails">
-                        <img src="/images/จัดการบัญชีผู้ใช้.png" alt="จัดการบัญชีผู้ใช้">
-                        <p>จัดการบัญชีผู้ใช้</p>
-                    </a>
-                </li>
-                <li>
-                  
-                </li>
-                <li>
-                    <a href="/login/logout"><button class="logout">ออกจากระบบ</button></a>
-                </li>
-            </ul>
-
-
-        </div>
-
-        <div class="content">
-            <div class="header">
-                จัดการพันธุ์สุนัข
-            </div>
-            <div class="actions">
-                <a href="/dog/addbreed" rel="noopener noreferrer">
-                    <button class="add-btn">+ เพิ่มพันธุ์สุนัข</button>
-
-                </a>
-            </div>
-
-            <table class="breed-table">
-                <thead>
-                    <tr>
-                        <th>ลำดับ</th>
-                        <th>รูปภาพ</th>
-                        <th>ชื่อพันธุ์สุนัข</th>
-                        <th>แก้ไข</th>
-                        <th>ลบ</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% dogs.forEach((dog, index)=> { %>
-
+                <table class="breed-table">
+                    <thead>
                         <tr>
-                          <td>
-                            <%= index + 1 %>
-                          </td>
-                          <td class="imagedog">
-                            <img alt="dog" src="/uploads/<%=dog.image%>">
-
-                          </td>
-                  
-                          <td>
-                            <a href="/adminBreed/<%=dog._id%>" rel="noopener noreferrer">
-                              <%= dog.breed %>
-                            </a><br>
-                          </td>
-                  
-                            <td><a href="/dog/editbreed/<%= dog._id %>"><button class="edit-btn">แก้ไข</button></a></td>
-                            <td><a href="/dog/delete/<%= dog._id %>" onclick="return confirmDelete();">
-                                <button class="delete-btn">ลบ</button>
-                            </a></td>
+                            <th>ลำดับ</th>
+                            <th>รูปภาพ</th>
+                            <th>ชื่อพันธุ์สุนัข</th>
+                            <th>แก้ไข</th>
+                            <th>ลบ</th>
                         </tr>
-                        
-                        <% }) %>
-                    <tr>
+                    </thead>
+                    <tbody>
+                        <% dogs.forEach((dog, index)=> { %>
 
-                    </tr>
+                            <tr>
+                                <td>
+                                    <%= index + 1 %>
+                                </td>
+                                <td class="imagedog">
+                                    <img alt="dog" src="/uploads/<%=dog.image%>">
+                                </td>
 
-                </tbody>
-            </table>
+                                <td>
+                                    <a href="/adminBreed/<%=dog._id%>" rel="noopener noreferrer">
+                                        <%= dog.breed %>
+                                    </a><br>
+                                </td>
 
+                                <td><a href="/dog/editbreed/<%= dog._id %>"><button class="edit-btn">แก้ไข</button></a>
+                                </td>
+                                <td><a href="/dog/delete/<%= dog._id %>" onclick="return confirmDelete(event, this.href);">
+                                        <button class="delete-btn">ลบ</button>
+                                    </a></td>
+                            </tr>
+
+                            <% }) %>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
-    </div>
 
 </body>
 
